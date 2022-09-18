@@ -12,9 +12,10 @@ import {
   Contact,
   Resources,
   SinglePost,
+  OurBeliefs,
+  OurHistory,
 } from "./pages";
-import { OurBeliefs } from "./pages/about/OurBeliefs";
-import { OurHistory } from "./pages/about/OurHistory";
+
 import {
   AddEvent,
   AddHealth,
@@ -55,14 +56,14 @@ function App() {
           <Route path="profile" element={<Profile />} />
           <Route path="add-position" element={<AddLeader />} />
         </Route>
-        <Route path="/about" element={<About />}>
-          <Route path="our-beliefs" element={<OurBeliefs />} />
-          <Route path="our-history" element={<OurHistory />} />
-        </Route>
-        <Route path="/ministries" element={<Ministries />}>
-          <Route path="youth" element={<Youth />} />
-          <Route path="children" element={<Children />} />
-        </Route>
+        <Route path="/about" element={<About />} />
+        <Route path="/about/our-beliefs" element={<OurBeliefs />} />
+        <Route path="about/our-history" element={<OurHistory />} />
+
+        <Route path="/ministries" element={<Ministries />} />
+        <Route path="/ministries/youth" element={<Youth />} />
+        <Route path="/ministries/children" element={<Children />} />
+
         {/* <Route path="/ministries" element={<Ministries />} />
         <Route path="/ministries/youth" element={<Youth />} />
         <Route path="/ministries/children" element={<Children />} /> */}

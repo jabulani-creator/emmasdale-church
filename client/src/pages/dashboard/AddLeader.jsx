@@ -1,4 +1,3 @@
-import axios from "axios";
 import { useState } from "react";
 import Wrapper from "../../assets/wrappers/DashboardFormPage";
 import { Alert, FormRow } from "../../Components";
@@ -13,14 +12,8 @@ const initialState = {
 };
 export const AddLeader = () => {
   const [values, setValues] = useState(initialState);
-  const {
-    isLoading,
-    showAlert,
-    isEditing,
-    createPosition,
-    displayAlert,
-    clearValues,
-  } = useAppContext();
+  const { isLoading, showAlert, isEditing, createPosition, clearValues } =
+    useAppContext();
 
   const onSubmit = (e) => {
     e.preventDefault();

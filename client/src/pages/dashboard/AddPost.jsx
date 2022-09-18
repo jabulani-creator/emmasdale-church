@@ -1,19 +1,13 @@
 import Wrapper from "../../assets/wrappers/DashboardFormPage";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { Alert } from "../../Components";
 import { useAppContext } from "../../context/appContext";
 
 const initialState = { postTitle: "", postDesc: "", postPhoto: "" };
 export const AddPost = () => {
   const [values, setValues] = useState(initialState);
-  const {
-    isLoading,
-    showAlert,
-    displayAlert,
-    isEditing,
-    clearValues,
-    createPost,
-  } = useAppContext();
+  const { isLoading, showAlert, displayAlert, clearValues, createPost } =
+    useAppContext();
 
   const onSubmit = (e) => {
     e.preventDefault();

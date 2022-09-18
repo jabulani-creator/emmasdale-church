@@ -17,8 +17,7 @@ import { RequestSearch } from "./REQUESTS/RequestSearch";
 import { RequestPageBtn } from "./RequestPageBtn";
 import { EventsContainer } from "./EVENTS/EventsContainer";
 import { SearchEvent } from "./EVENTS/SearchEvent";
-import { Input } from "./Inputs";
-import ImageUpload from "./ImageUpload";
+
 export {
   HeaderLogin,
   FormRow,
@@ -39,6 +38,4 @@ export {
   RequestPageBtn,
   EventsContainer,
   SearchEvent,
-  Input,
-  ImageUpload,
 };
