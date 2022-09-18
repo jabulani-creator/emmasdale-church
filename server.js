@@ -10,7 +10,7 @@ import { fileURLToPath } from "url";
 import cloudinary from "cloudinary";
 import "express-async-errors";
 import morgan from "morgan";
-// import helmet from "helmet";
+import helmet from "helmet";
 import xss from "xss-clean";
 import mongoSanitize from "express-mongo-sanitize";
 
@@ -42,6 +42,15 @@ app.use(express.json());
 app.use(express.static("./public"));
 
 // app.use(helmet());
+app.use(
+  helmet.contentSecurityPolicy({
+    useDefaults: false,
+    directives: {
+      "default-src": helmet.contentSecurityPolicy.dangerouslyDisableDefaultSrc,
+      "script-src": ["'self'"],
+    },
+  })
+);
 app.use(xss());
 app.use(mongoSanitize());
 
