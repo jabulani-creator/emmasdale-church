@@ -1,4 +1,3 @@
-import React from "react";
 import { Footer, Text, OnlineWorship, Navigation } from "../../Components/NEW";
 import {
   Normal,

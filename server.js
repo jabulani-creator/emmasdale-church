@@ -29,6 +29,8 @@ import eventsRouter from "./routes/eventsRoute.js";
 import healthRouter from "./routes/healthRoute.js";
 import contactRouter from "./routes/ContactRoute.js";
 import leadersRouter from "./routes/leaderRoute.js";
+import uploadRouter from "./routes/pdfRoute.js";
+import imageRouter from "./routes/imageRoute.js";
 
 //middleware
 import notFoundMiddleware from "./middleware/not-found.js";
@@ -65,6 +67,8 @@ app.use("/api/v1/events", eventsRouter);
 app.use("/api/v1/health", healthRouter);
 app.use("/api/v1/contact", contactRouter);
 app.use("/api/v1/position", leadersRouter);
+app.use("/api/v1/pdf", uploadRouter);
+app.use("/api/v1/image", imageRouter);
 
 app.get("*", function (request, response) {
   response.sendFile(path.resolve(__dirname, "./client/build", "index.html"));

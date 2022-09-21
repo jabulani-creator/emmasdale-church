@@ -5,7 +5,7 @@ export const Prayer = () => {
   return (
     <Wrapper>
       <div className="PrayerMessage">
-        <h1 className="title primary left">What troubles you today?</h1>
+        <h1 className="primary left_align">What troubles you today?</h1>
         <p className="subtitle left">
           you dont have to go through tough times by yourself. We are here to
           give your support through prayers and visitations. Thats what family

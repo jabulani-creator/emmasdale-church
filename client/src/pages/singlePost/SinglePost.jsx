@@ -45,7 +45,7 @@ export const SinglePost = () => {
 
           <p className="right-paragraph">{postDesc}</p>
         </div>
-        <button className="btnn">
+        <button className="btnn" style={{ marginBottom: "20px" }}>
           <Link to={`/`}>Back to more posts</Link>
         </button>
       </section>

@@ -56,6 +56,8 @@ import {
   CREATE_POSITION_ERROR,
   GET_SINGLE_EVENT_BEGIN,
   GET_SINGLE_EVENT_SUCCESS,
+  GET_PHOTOS_BEGIN,
+  GET_PHOTOS_SUCCESS,
 } from "./actions";
 
 import { initialState } from "./appContext";
@@ -524,6 +526,22 @@ const reducer = (state, action) => {
       showAlert: true,
       alertType: "danger",
       alertText: action.payload.msg,
+    };
+  }
+  /*************************************************************PHOTOS++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+  if (action.type === GET_PHOTOS_BEGIN) {
+    return {
+      ...state,
+      isLoading: true,
+    };
+  }
+  if (action.type === GET_PHOTOS_SUCCESS) {
+    return {
+      ...state,
+      isLoading: false,
+      images: action.payload.images,
+      totalImages: action.payload.totalImages,
+      numOfImagePages: action.payload.numOfImagePages,
     };
   } else {
     return { ...state };

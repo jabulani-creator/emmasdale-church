@@ -1,7 +1,7 @@
-import React from "react";
 import { Footer, Team } from "../../Components/CONTACT";
 import { Form, Normal, PageHero } from "../../Components/GLOBAL";
 import { Navigation } from "../../Components/Navigation";
+
 export const Contact = () => {
   return (
     <>

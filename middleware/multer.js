@@ -1,5 +1,6 @@
 import multer from "multer";
 import path from "path";
+import cloudinary from "cloudinary";
 
 const storage = multer.diskStorage({
   filename(req, file, cb) {
@@ -22,11 +23,23 @@ function checkFileType(file, cb) {
   }
 }
 
-const Upload = multer({
-  storage,
-  fileFilter: function (req, file, cb) {
-    checkFileType(file, cb);
-  },
-});
+const FileUpload = (file, folder) => {
+  let ext = path.extname(file);
+  return new Promise((resolve) => {
+    cloudinary.uploader.upload(
+      file,
+      (result) => {
+        resolve({
+          url: result.url,
+          id: result.public_id + ext,
+        });
+      },
+      {
+        resource_type: "auto",
+        folder: folder,
+      }
+    );
+  });
+};
 
-export default Upload;
+export default FileUpload;

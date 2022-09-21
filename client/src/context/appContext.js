@@ -56,6 +56,8 @@ import {
   CREATE_POSITION_BEGIN,
   CREATE_POSITION_SUCCESS,
   CREATE_POSITION_ERROR,
+  GET_PHOTOS_BEGIN,
+  GET_PHOTOS_SUCCESS,
 } from "./actions";
 import axios from "axios";
 
@@ -80,6 +82,9 @@ export const initialState = {
   showSidebar: false,
   posts: [],
   events: [],
+  images: [],
+  totalImages: 0,
+  numOfImagePages: 1,
   totalEvents: 0,
   numOfEventsPages: 1,
   editEventId: "",
@@ -92,6 +97,8 @@ export const initialState = {
   search: "",
   sort: "latest",
   sortOptions: ["latest", "oldest", "a-z", "z-a"],
+  imageSortOptions: ["Youth", "Women", "Music", "Amo"],
+  department: "Music",
   name: "",
   phone: "",
   email: "",
@@ -567,7 +574,35 @@ const AppProvider = ({ children }) => {
       });
     }
   };
+  /********************************************** REQUEST END******************************************* */
+  /********************************************** PHOTOS START ******************************************* */
 
+  const getPhotos = async () => {
+    // const { page, search, sort } = state;
+
+    let url = `/api/v1/image`;
+
+    dispatch({ type: GET_PHOTOS_BEGIN });
+    try {
+      const { data } = await axios.get(url);
+      const { images, totalImages, numOfImagePages } = data;
+
+      dispatch({
+        type: GET_PHOTOS_SUCCESS,
+        payload: {
+          images,
+          totalImages,
+          numOfImagePages,
+        },
+      });
+    } catch (error) {
+      console.log(error);
+    }
+
+    clearAlert();
+  };
+
+  /********************************************** PHOTOS START ******************************************* */
   return (
     <AppContext.Provider
       value={{
@@ -609,6 +644,7 @@ const AppProvider = ({ children }) => {
         isSidebarOpen,
         location,
         page,
+        getPhotos,
       }}
     >
       {children}
