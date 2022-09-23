@@ -4,7 +4,6 @@ import { MiniMenu } from "./MiniMenu";
 import { Beliefs } from "./Beliefs/Beliefs";
 import { Identity } from "./Identity";
 import { History } from "./dynamic/History";
-import { Reviews } from "./reviews/Reviews";
 import { Values } from "./Values";
 
 export {
@@ -15,6 +14,5 @@ export {
   Beliefs,
   Identity,
   History,
-  Reviews,
   Values,
 };

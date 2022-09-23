@@ -5,13 +5,12 @@ import checkPermission from "../utils/checksPermission.js";
 import cloudinary from "cloudinary";
 
 const createEvent = async (req, res) => {
-  const { eventTitle, eventDate, eventDesc } = req.body;
+  const { eventTitle, eventDate, venue, time } = req.body;
   const result = await cloudinary.v2.uploader.upload(req.file.path, {
     use_filename: true,
     folder: "emmsadale-church",
   });
-  console.log(result);
-  if (!eventTitle || !eventDate || !eventDesc) {
+  if (!eventTitle || !eventDate || !venue || !time) {
     throw new BadRequestError("Please Provide All Values");
   }
 
@@ -20,7 +19,8 @@ const createEvent = async (req, res) => {
   const event = await Event.create({
     eventTitle,
     eventDate,
-    eventDesc,
+    venue,
+    time,
     eventPhoto: result.secure_url,
     cloudinary_id: result.public_id,
     createdBy: req.user.userId,
@@ -52,9 +52,9 @@ const getAllEvents = async (req, res) => {
 const updateEvent = async (req, res) => {
   const { id: eventId } = req.params;
 
-  const { eventDate, eventDesc, eventTitle } = req.body;
+  const { eventTitle, eventDate, venue, time } = req.body;
 
-  if (!eventDate || !eventDesc || !eventTitle) {
+  if (!eventTitle || !eventDate || !venue || !time) {
     throw new BadRequestError("Please Provide All Values");
   }
 

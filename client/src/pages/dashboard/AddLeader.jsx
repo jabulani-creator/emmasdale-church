@@ -12,8 +12,7 @@ const initialState = {
 };
 export const AddLeader = () => {
   const [values, setValues] = useState(initialState);
-  const { isLoading, showAlert, isEditing, createPosition, clearValues } =
-    useAppContext();
+  const { isLoading, showAlert, createPosition, clearValues } = useAppContext();
 
   const onSubmit = (e) => {
     e.preventDefault();

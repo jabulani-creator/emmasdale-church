@@ -13,6 +13,8 @@ import { SabbathSchool } from "../GLOBAL/sabbathSchool/SabbathSchool";
 import { WeeklyBulleting } from "../GLOBAL/weekly/WeeklyBulleting";
 import { Figuring } from "./figuring/Figuring";
 import Hero from "./Hero";
+import Review from "./Review";
+
 export {
   Header,
   Navigation,
@@ -29,4 +31,5 @@ export {
   WeeklyBulleting,
   Figuring,
   Hero,
+  Review,
 };

@@ -12,6 +12,7 @@ import {
   SabbathSchool,
   WeeklyBulleting,
   Figuring,
+  Review,
 } from "../../Components/HOME";
 import { Navigation } from "../../Components/Navigation";
 
@@ -31,6 +32,7 @@ export const Home = () => {
       <SabbathSchool />
       <WeeklyBulleting />
       <Figuring />
+      <Review />
       <Footer />
     </>
   );

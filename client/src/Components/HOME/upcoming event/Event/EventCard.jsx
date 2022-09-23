@@ -1,22 +1,30 @@
-import Wrapper from "../../../../assets/wrappers/EventCard";
 import moment from "moment";
-
-const EventCard = ({ eventDate, eventDesc, eventPhoto, eventTitle }) => {
+import { MdPlace } from "react-icons/md";
+import { AiTwotoneClockCircle } from "react-icons/ai";
+const EventCard = ({ eventDate, venue, time, eventPhoto, eventTitle }) => {
   let date = moment(eventDate);
-  date = date.format("MMM Do, YYYY");
+  date = date.format("MMM Do");
+  let Time = moment(time, "HH:mm:ss").format("hh:mm A");
   return (
-    <Wrapper>
-      <img className="carousel-image" src={eventPhoto} alt="" />
-      <h5 className="Date">{date}</h5>
-      <h2 className="eventTitle">{eventTitle}</h2>
-      <div className="Overlay"></div>
-      <div className="MessageDesc">
-        <h4>{eventTitle}</h4>
-        <hr />
-        <small>{eventDesc}</small>
-        <p>{date}</p>
+    <section>
+      <div className="image">
+        <img src={eventPhoto} alt="" className="event-image" />
+        <div className="date">{date}</div>
+        <div className="evemt-message">
+          <small className="event">{eventTitle}</small>
+          <div className="venue">
+            <small className="time">
+              <AiTwotoneClockCircle className="small-icon" />
+              {Time}
+            </small>
+            <small className="time">
+              <MdPlace className="small-icon" />
+              {venue}
+            </small>
+          </div>
+        </div>
       </div>
-    </Wrapper>
+    </section>
   );
 };
 

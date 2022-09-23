@@ -81,6 +81,11 @@ import {
   CREATE_ELDER_ERROR,
   GET_ELDER_BEGIN,
   GET_ELDER_SUCCESS,
+  CREATE_REVIEW_BEGIN,
+  CREATE_REVIEW_SUCCESS,
+  CREATE_REVIEW_ERROR,
+  GET_REVIEW_BEGIN,
+  GET_REVIEW_SUCCESS,
 } from "./actions";
 import axios from "axios";
 
@@ -109,6 +114,7 @@ export const initialState = {
   workers: [],
   leaders: [],
   elders: [],
+  reviews: [],
   totalImages: 0,
   numOfImagePages: 1,
   departmentOptions: ["Youth", "Women", "Music", "Amo"],
@@ -555,6 +561,7 @@ const AppProvider = ({ children }) => {
     try {
       const { data } = await authFetch(url);
       const { requests, totalRequests, numOfRequestPages } = data;
+      console.log(requests);
       dispatch({
         type: GET_REQUEST_SUCCESS,
         payload: {
@@ -606,6 +613,34 @@ const AppProvider = ({ children }) => {
       dispatch({
         type: GET_POSITION_SUCCESS,
         payload: { leaders },
+      });
+    } catch (error) {}
+  };
+  /********************************************** REQUEST END******************************************* */
+  /************************************ REVIEW START********************************* */
+
+  const createReview = async (review) => {
+    dispatch({ type: CREATE_REVIEW_BEGIN });
+    try {
+      await axios.post("/api/v1/review", review);
+      dispatch({ type: CREATE_REVIEW_SUCCESS });
+      dispatch({ type: CLEAR_VALUES });
+    } catch (error) {
+      console.log(error);
+      dispatch({
+        type: CREATE_REVIEW_ERROR,
+        payload: { msg: error.response.data.msg },
+      });
+    }
+  };
+  const getReviews = async () => {
+    dispatch({ type: GET_REVIEW_BEGIN });
+    try {
+      const { data } = await axios.get("/api/v1/review");
+      const { reviews } = data;
+      dispatch({
+        type: GET_REVIEW_SUCCESS,
+        payload: { reviews },
       });
     } catch (error) {}
   };
@@ -795,6 +830,8 @@ const AppProvider = ({ children }) => {
         getWorkers,
         createElder,
         getElders,
+        createReview,
+        getReviews,
       }}
     >
       {children}

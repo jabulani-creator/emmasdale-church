@@ -6,7 +6,8 @@ import { useAppContext } from "../../context/appContext";
 const initialState = {
   eventTitle: "",
   eventDate: "",
-  eventDesc: "",
+  venue: "",
+  time: "",
   eventPhoto: "",
 };
 export const AddEvent = () => {
@@ -17,7 +18,12 @@ export const AddEvent = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    if (!values.eventTitle || !values.eventDate || !values.eventDesc) {
+    if (
+      !values.eventTitle ||
+      !values.eventDate ||
+      !values.venue ||
+      !values.time
+    ) {
       displayAlert();
       return;
     }
@@ -26,17 +32,17 @@ export const AddEvent = () => {
     const formdata = new FormData();
     formdata.append("eventTitle", values.eventTitle);
     formdata.append("eventDate", values.eventDate);
-    formdata.append("eventDesc", values.eventDesc);
+    formdata.append("venue", values.venue);
+    formdata.append("time", values.time);
     formdata.append("eventPhoto", values.eventPhoto);
-
-    console.log(formdata);
 
     createEvent(formdata);
     if (!isLoading) {
       setValues({
         eventTitle: "",
         eventDate: "",
-        eventDesc: "",
+        venue: "",
+        time: "",
         eventPhoto: "",
       });
     }
@@ -69,8 +75,21 @@ export const AddEvent = () => {
           />
         </div>
         <div className="form-row">
+          <label htmlFor="venue" className="form-label">
+            Venue
+          </label>
+          <input
+            type="text"
+            placeholder="Emmasdale Church"
+            name="venue"
+            className="form-input"
+            value={values.venue}
+            onChange={handleChange}
+          />
+        </div>
+        <div className="form-row">
           <label htmlFor="eventDate" className="form-label">
-            Event Date
+            Date
           </label>
           <input
             type="date"
@@ -81,16 +100,18 @@ export const AddEvent = () => {
           />
         </div>
         <div className="form-row">
-          <label htmlFor="eventDesc" className="form-label">
-            Event Description
+          <label htmlFor="time" className="form-label">
+            Time
           </label>
-          <textarea
-            name="eventDesc"
-            value={values.eventDesc}
-            className="form-textarea"
+          <input
+            type="time"
+            name="time"
+            className="form-input"
+            value={values.time}
             onChange={handleChange}
           />
         </div>
+
         <div className="form-row">
           <input
             type="file"

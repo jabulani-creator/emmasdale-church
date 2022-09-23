@@ -10,9 +10,13 @@ const EventSchema = new mongoose.Schema(
     },
     eventDate: {
       type: String,
-      required: [true, "please provide post event date"],
+      required: [true, "please provide event date"],
     },
-    eventDesc: {
+    venue: {
+      type: String,
+      required: [true, "please provide  event venue"],
+    },
+    time: {
       type: String,
       required: [true, "please provide post event message"],
     },

@@ -15,6 +15,7 @@ export const Events = () => {
   const { getEvents, events } = useAppContext();
   useEffect(() => {
     getEvents();
+    // eslint-disable-next-line
   }, []);
 
   return (

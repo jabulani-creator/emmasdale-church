@@ -1,4 +1,4 @@
-import { FaGreaterThan } from "react-icons/fa";
+import { AiTwotoneClockCircle } from "react-icons/ai";
 import Wrapper from "../../../assets/wrappers/Worship";
 
 export const Worship = () => {
@@ -16,36 +16,33 @@ export const Worship = () => {
             <div>
               <h3 className="SabbathHeader">Sabbath Worship (SAT)</h3>
               <h5 className="Time">
-                Sabbath School{" "}
+                <small className="w">Sabbath School</small>
                 <span>
-                  <FaGreaterThan />
+                  <AiTwotoneClockCircle />
+                  08:00 AM - 09:00 AM
                 </span>{" "}
-                08:00 AM - 09:00 AM
               </h5>
               <h5 className="Time">
-                Main Service{" "}
+                <small className="w">Main Service</small>
                 <span>
-                  <FaGreaterThan />
+                  <AiTwotoneClockCircle /> 10:00 AM - 12:00 PM
                 </span>{" "}
-                10:00 AM - 12:00 PM
               </h5>
               <h5 className="Time">
-                Sabbath School{" "}
+                <small className="w">Bible Study</small>
                 <span>
-                  <FaGreaterThan />
+                  <AiTwotoneClockCircle /> 02:00 PM - 05:00 PM
                 </span>{" "}
-                02:00 PM - 05:00 PM
               </h5>
             </div>
             <div>
               <h3 className="SabbathHeader">Weekly WEDS and FRI</h3>
-              <h5 className="Time">
-                Vespers{" "}
+              <div className="Time">
+                <small className="w">Vespers</small>
                 <span>
-                  <FaGreaterThan />
+                  <AiTwotoneClockCircle /> 05:00 PM - 07:00 PM
                 </span>{" "}
-                05:00 PM - 07:00 PM
-              </h5>
+              </div>
             </div>
           </div>
         </div>

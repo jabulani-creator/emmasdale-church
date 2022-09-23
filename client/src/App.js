@@ -15,6 +15,7 @@ import {
   OurBeliefs,
   OurHistory,
   AllThePosts,
+  AddReview,
 } from "./pages";
 
 import {
@@ -92,6 +93,7 @@ function App() {
         <Route path="/media" element={<Media />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/resources" element={<Resources />} />
+        <Route path="/add-review" element={<AddReview />} />
         <Route path="*" element={<Error />} />
       </Routes>
     </BrowserRouter>

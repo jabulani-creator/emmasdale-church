@@ -81,6 +81,11 @@ import {
   CREATE_ELDER_ERROR,
   GET_ELDER_BEGIN,
   GET_ELDER_SUCCESS,
+  CREATE_REVIEW_BEGIN,
+  CREATE_REVIEW_SUCCESS,
+  CREATE_REVIEW_ERROR,
+  GET_REVIEW_BEGIN,
+  GET_REVIEW_SUCCESS,
 } from "./actions";
 
 import { initialState } from "./appContext";
@@ -666,6 +671,45 @@ const reducer = (state, action) => {
       ...state,
       isLoading: false,
       pastors: action.payload.pastors,
+    };
+  }
+  /************************************************PASTOR END************************************************************  */
+  /************************************************REVIEW START************************************************************  */
+  if (action.type === CREATE_REVIEW_BEGIN) {
+    return {
+      ...state,
+      isLoading: true,
+    };
+  }
+  if (action.type === CREATE_REVIEW_SUCCESS) {
+    return {
+      ...state,
+      isLoading: false,
+      showAlert: true,
+      alertType: "success",
+      alertText: "Review created",
+    };
+  }
+  if (action.type === CREATE_REVIEW_ERROR) {
+    return {
+      ...state,
+      isLoading: false,
+      showAlert: true,
+      alertType: "danger",
+      alertText: action.payload.msg,
+    };
+  }
+  if (action.type === GET_REVIEW_BEGIN) {
+    return {
+      ...state,
+      isLoading: true,
+    };
+  }
+  if (action.type === GET_REVIEW_SUCCESS) {
+    return {
+      ...state,
+      isLoading: false,
+      reviews: action.payload.reviews,
     };
   }
   /************************************************PASTOR END************************************************************  */
