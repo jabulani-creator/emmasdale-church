@@ -25,7 +25,6 @@ export const WeeklyBulleting = () => {
     getBulleting();
     // eslint-disable-next-line
   }, [isLoading]);
-  console.log(bulleting);
   return (
     <Wrapper>
       <h1 className="title">weekly bulleting</h1>

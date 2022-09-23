@@ -58,6 +58,29 @@ import {
   CREATE_POSITION_ERROR,
   GET_PHOTOS_BEGIN,
   GET_PHOTOS_SUCCESS,
+  CREATE_PDF_BEGIN,
+  CREATE_PDF_SUCCESS,
+  CREATE_PDF_ERROR,
+  UPLOAD_IMAGE_BEGIN,
+  UPLOAD_IMAGE_SUCCESS,
+  UPLOAD_IMAGE_ERROR,
+  CREATE_PASTOR_BEGIN,
+  CREATE_PASTOR_SUCCESS,
+  CREATE_PASTOR_ERROR,
+  CREATE_WORKER_BEGIN,
+  CREATE_WORKER_SUCCESS,
+  CREATE_WORKER_ERROR,
+  GET_WORKER_BEGIN,
+  GET_WORKER_SUCCESS,
+  GET_PASTOR_BEGIN,
+  GET_PASTOR_SUCCESS,
+  GET_POSITION_BEGIN,
+  GET_POSITION_SUCCESS,
+  CREATE_ELDER_BEGIN,
+  CREATE_ELDER_SUCCESS,
+  CREATE_ELDER_ERROR,
+  GET_ELDER_BEGIN,
+  GET_ELDER_SUCCESS,
 } from "./actions";
 import axios from "axios";
 
@@ -72,7 +95,6 @@ export const initialState = {
   alertText: "",
   alertType: "",
   user: user ? JSON.parse(user) : null,
-  leader: null,
   token: token,
   userPosition: userPosition || "",
   isEditing: false,
@@ -83,8 +105,15 @@ export const initialState = {
   posts: [],
   events: [],
   images: [],
+  pastors: [],
+  workers: [],
+  leaders: [],
+  elders: [],
   totalImages: 0,
   numOfImagePages: 1,
+  departmentOptions: ["Youth", "Women", "Music", "Amo"],
+  department: "Music",
+  searchDepartment: "all",
   totalEvents: 0,
   numOfEventsPages: 1,
   editEventId: "",
@@ -97,8 +126,6 @@ export const initialState = {
   search: "",
   sort: "latest",
   sortOptions: ["latest", "oldest", "a-z", "z-a"],
-  imageSortOptions: ["Youth", "Women", "Music", "Amo"],
-  department: "Music",
   name: "",
   phone: "",
   email: "",
@@ -559,13 +586,10 @@ const AppProvider = ({ children }) => {
   };
 
   const createPosition = async (currentLeader) => {
-    console.log(currentLeader);
     dispatch({ type: CREATE_POSITION_BEGIN });
     try {
-      const response = await authFetch.post("/position", currentLeader);
-      console.log(response);
-      const { leader } = response.data;
-      dispatch({ type: CREATE_POSITION_SUCCESS, payload: leader });
+      await authFetch.post("/position", currentLeader);
+      dispatch({ type: CREATE_POSITION_SUCCESS });
     } catch (error) {
       console.log(error);
       dispatch({
@@ -574,14 +598,115 @@ const AppProvider = ({ children }) => {
       });
     }
   };
+  const getPositions = async () => {
+    dispatch({ type: GET_POSITION_BEGIN });
+    try {
+      const { data } = await axios.get("/api/v1/position");
+      const { leaders } = data;
+      dispatch({
+        type: GET_POSITION_SUCCESS,
+        payload: { leaders },
+      });
+    } catch (error) {}
+  };
+  /********************************************** REQUEST END******************************************* */
+  /************************************ PASTOR START******************************** */
+
+  const createPastor = async (pastor) => {
+    dispatch({ type: CREATE_PASTOR_BEGIN });
+    try {
+      await authFetch.post("/pastor", pastor);
+      dispatch({ type: CREATE_PASTOR_SUCCESS });
+      dispatch({ type: CLEAR_VALUES });
+    } catch (error) {
+      console.log(error);
+      dispatch({
+        type: CREATE_PASTOR_ERROR,
+        payload: { msg: error.response.data.msg },
+      });
+    }
+  };
+  const getPastors = async () => {
+    dispatch({ type: GET_PASTOR_BEGIN });
+    try {
+      const { data } = await axios.get("/api/v1/pastor");
+      const { pastors } = data;
+
+      dispatch({ type: GET_PASTOR_SUCCESS, payload: { pastors } });
+    } catch (error) {}
+  };
+  /********************************************** REQUEST END******************************************* */
+  /************************************ WORKER START******************************** */
+
+  const createWorker = async (worker) => {
+    dispatch({ type: CREATE_WORKER_BEGIN });
+    try {
+      await authFetch.post("/worker", worker);
+      dispatch({ type: CREATE_WORKER_SUCCESS });
+      dispatch({ type: CLEAR_VALUES });
+    } catch (error) {
+      console.log(error);
+      dispatch({
+        type: CREATE_WORKER_ERROR,
+        payload: { msg: error.response.data.msg },
+      });
+    }
+  };
+  const getWorkers = async () => {
+    dispatch({ type: GET_WORKER_BEGIN });
+    try {
+      const { data } = await axios.get("/api/v1/worker");
+      const { workers } = data;
+      dispatch({ type: GET_WORKER_SUCCESS, payload: { workers } });
+    } catch (error) {}
+  };
+  /********************************************** REQUEST END******************************************* */
+  /************************************ WORKER START******************************** */
+
+  const createElder = async (elder) => {
+    dispatch({ type: CREATE_ELDER_BEGIN });
+    try {
+      await authFetch.post("/elder", elder);
+      dispatch({ type: CREATE_ELDER_SUCCESS });
+      dispatch({ type: CLEAR_VALUES });
+    } catch (error) {
+      console.log(error);
+      dispatch({
+        type: CREATE_ELDER_ERROR,
+        payload: { msg: error.response.data.msg },
+      });
+    }
+  };
+  const getElders = async () => {
+    dispatch({ type: GET_ELDER_BEGIN });
+    try {
+      const { data } = await axios.get("/api/v1/elder");
+      const { elders } = data;
+      dispatch({ type: GET_ELDER_SUCCESS, payload: { elders } });
+    } catch (error) {}
+  };
   /********************************************** REQUEST END******************************************* */
   /********************************************** PHOTOS START ******************************************* */
-
+  const uploadImage = async (image) => {
+    dispatch({ type: UPLOAD_IMAGE_BEGIN });
+    try {
+      await authFetch.post("/image", image);
+      dispatch({ type: UPLOAD_IMAGE_SUCCESS });
+      dispatch({ type: CLEAR_VALUES });
+    } catch (error) {
+      dispatch({
+        type: UPLOAD_IMAGE_ERROR,
+        payload: { msg: error.response.data.msg },
+      });
+    }
+  };
   const getPhotos = async () => {
-    // const { page, search, sort } = state;
+    const { page, search, searchDepartment } = state;
 
-    let url = `/api/v1/image`;
-
+    let url = `/api/v1/image?page=${page}&department=${searchDepartment}`;
+    if (search) {
+      url = url + `&search=${search}`;
+    }
     dispatch({ type: GET_PHOTOS_BEGIN });
     try {
       const { data } = await axios.get(url);
@@ -600,6 +725,22 @@ const AppProvider = ({ children }) => {
     }
 
     clearAlert();
+  };
+
+  /********************************************** PHOTOS END ******************************************* */
+  /********************************************** PDF START ******************************************* */
+  const createBulleting = async (currentBulleting) => {
+    dispatch({ type: CREATE_PDF_BEGIN });
+    try {
+      await authFetch.post("/pdf", currentBulleting);
+      dispatch({ type: CREATE_PDF_SUCCESS });
+      dispatch({ type: CLEAR_VALUES });
+    } catch (error) {
+      dispatch({
+        type: CREATE_PDF_ERROR,
+        payload: { msg: error.response.data.msg },
+      });
+    }
   };
 
   /********************************************** PHOTOS START ******************************************* */
@@ -645,6 +786,15 @@ const AppProvider = ({ children }) => {
         location,
         page,
         getPhotos,
+        createBulleting,
+        uploadImage,
+        createPastor,
+        createWorker,
+        getPastors,
+        getPositions,
+        getWorkers,
+        createElder,
+        getElders,
       }}
     >
       {children}

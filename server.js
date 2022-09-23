@@ -28,9 +28,12 @@ import postsRouter from "./routes/postRoute.js";
 import eventsRouter from "./routes/eventsRoute.js";
 import healthRouter from "./routes/healthRoute.js";
 import contactRouter from "./routes/ContactRoute.js";
-import leadersRouter from "./routes/leaderRoute.js";
+import departmentRoute from "./routes/departmentRoute.js";
 import uploadRouter from "./routes/pdfRoute.js";
 import imageRouter from "./routes/imageRoute.js";
+import workerRouter from "./routes/workerRoute.js";
+import pastorRouter from "./routes/pastorRoute.js";
+import eldersRouter from "./routes/eldersRoute.js";
 
 //middleware
 import notFoundMiddleware from "./middleware/not-found.js";
@@ -66,9 +69,12 @@ app.use("/api/v1/posts", postsRouter);
 app.use("/api/v1/events", eventsRouter);
 app.use("/api/v1/health", healthRouter);
 app.use("/api/v1/contact", contactRouter);
-app.use("/api/v1/position", leadersRouter);
+app.use("/api/v1/position", departmentRoute);
 app.use("/api/v1/pdf", uploadRouter);
 app.use("/api/v1/image", imageRouter);
+app.use("/api/v1/worker", workerRouter);
+app.use("/api/v1/pastor", pastorRouter);
+app.use("/api/v1/elder", eldersRouter);
 
 app.get("*", function (request, response) {
   response.sendFile(path.resolve(__dirname, "./client/build", "index.html"));

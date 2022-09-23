@@ -8,6 +8,7 @@ import { PostInfo } from "./PostInfo";
 import { Posts } from "./Posts";
 import { SearchContainer } from "./SearchContainer";
 import { PostsContainer } from "./PostsContainer";
+import { PostsContainerPublic } from "./PostsContainerPublic";
 import { Health } from "./ALLHEALTH/Health";
 import { HealthContainer } from "./ALLHEALTH/HealthContainer";
 import { HealthSearchContainer } from "./ALLHEALTH/HealthSearchContainer";
@@ -29,6 +30,7 @@ export {
   PostInfo,
   SearchContainer,
   PostsContainer,
+  PostsContainerPublic,
   HealthSearchContainer,
   HealthContainer,
   Health,

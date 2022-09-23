@@ -1,7 +1,5 @@
 import Images from "../models/Gallery.js";
 import { StatusCodes } from "http-status-codes";
-import { BadRequestError, NotFoundError } from "../errors/index.js";
-import checkPermission from "../utils/checksPermission.js";
 import cloudinary from "cloudinary";
 
 const uploadImage = async (req, res) => {
@@ -18,7 +16,7 @@ const uploadImage = async (req, res) => {
 };
 
 const getImage = async (req, res) => {
-  const { department, sort, search } = req.query;
+  const { department, search } = req.query;
 
   const queryObject = {};
 

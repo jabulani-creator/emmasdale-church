@@ -957,3 +957,17 @@ Stock Photos
   text-align: center;
   padding: 3rem;
 }
+/**************************/
+/*********lEADER************/
+.leader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.pastor {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

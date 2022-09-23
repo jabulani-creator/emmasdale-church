@@ -1,14 +1,14 @@
 import Wrapper from "../../assets/wrappers/SearchContainer";
 import { useAppContext } from "../../context/appContext";
-import { FormRow, FormRowSelect } from "../index";
+import { FormRowSelect } from "../index";
 import { FaSearch } from "react-icons/fa";
 
 const MediaSearch = () => {
   const {
     search,
-    department,
     handleChange,
-    imageSortOptions,
+    departmentOptions,
+    searchDepartment,
     clearFilters,
     isLoading,
   } = useAppContext();
@@ -23,7 +23,6 @@ const MediaSearch = () => {
   return (
     <Wrapper>
       <form className="form">
-        <h4>search form</h4>
         <div className="form-center">
           <div className="form-row">
             <input
@@ -40,10 +39,11 @@ const MediaSearch = () => {
           </div>
 
           <FormRowSelect
-            name="department"
-            value={department}
+            labelText="department"
+            name="searchDepartment"
+            value={searchDepartment}
             handleChange={handleSearch}
-            list={imageSortOptions}
+            list={["all", ...departmentOptions]}
           />
           <button
             className="btn btn-block btn-danger"

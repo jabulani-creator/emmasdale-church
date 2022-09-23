@@ -11,6 +11,7 @@ import { Resources } from "./Resources/Resources";
 import { SinglePost } from "./singlePost/SinglePost";
 import { OurBeliefs } from "./about/OurBeliefs";
 import { OurHistory } from "./about/OurHistory";
+import AllThePosts from "./AllThePosts";
 export {
   Error,
   Register,
@@ -25,4 +26,5 @@ export {
   SinglePost,
   OurBeliefs,
   OurHistory,
+  AllThePosts,
 };

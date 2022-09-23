@@ -4,11 +4,11 @@ import { Alert, FormRow } from "../../Components";
 import { useAppContext } from "../../context/appContext";
 
 const initialState = {
-  leaderName: "",
-  leaderEmail: "",
-  leaderPhone: "",
-  leaderPosition: "",
-  leaderPhoto: "",
+  name: "",
+  email: "",
+  phone: "",
+  position: "",
+  photo: "",
 };
 export const AddLeader = () => {
   const [values, setValues] = useState(initialState);
@@ -19,11 +19,11 @@ export const AddLeader = () => {
     e.preventDefault();
 
     const formdata = new FormData();
-    formdata.append("leaderName", values.leaderName);
-    formdata.append("leaderEmail", values.leaderEmail);
-    formdata.append("leaderPosition", values.leaderPosition);
-    formdata.append("leaderPhone", values.leaderPhone);
-    formdata.append("leaderPhoto", values.leaderPhoto);
+    formdata.append("name", values.name);
+    formdata.append("email", values.email);
+    formdata.append("position", values.position);
+    formdata.append("phone", values.phone);
+    formdata.append("photo", values.photo);
 
     createPosition(formdata);
   };
@@ -33,48 +33,47 @@ export const AddLeader = () => {
   };
 
   const handlePhoto = (e) => {
-    setValues({ ...values, leaderPhoto: e.target.files[0] });
-    console.log(values.leaderPhoto);
+    setValues({ ...values, photo: e.target.files[0] });
   };
 
   return (
     <Wrapper>
       <form className="form" encType="multipart/form-data" onSubmit={onSubmit}>
-        <h3>{isEditing ? "edit health post" : "add health post"}</h3>
+        <h3>Add Department Head</h3>
         {showAlert && <Alert />}
         <FormRow
           type="text"
           placeholder="victoria nswila"
-          name="leaderName"
-          value={values.leaderName}
+          name="name"
+          value={values.name}
           handleChange={handleChange}
         />
         <FormRow
           type="text"
           placeholder="pathfinder leader"
-          name="leaderPosition"
-          value={values.leaderPosition}
+          name="position"
+          value={values.position}
           handleChange={handleChange}
         />
         <FormRow
           type="text"
           placeholder="0976975737"
-          name="leaderPhone"
-          value={values.leaderPhone}
+          name="phone"
+          value={values.phone}
           handleChange={handleChange}
         />
         <FormRow
           type="text"
           placeholder="victoria@gmail.com"
-          name="leaderEmail"
-          value={values.leaderEmail}
+          name="email"
+          value={values.email}
           handleChange={handleChange}
         />
         <div className="form-row">
           <input
             type="file"
             accept=".jpg,.png,.jpeg"
-            name="leaderPhoto"
+            name="photo"
             onChange={handlePhoto}
           />
         </div>

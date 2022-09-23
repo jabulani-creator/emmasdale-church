@@ -5,12 +5,21 @@ import ImageGallery from "./ImageGallery";
 import { useAppContext } from "../../context/appContext";
 
 const ImagaContainer = () => {
-  const { getPhotos, images, isLoading } = useAppContext();
+  const {
+    getPhotos,
+    images,
+    isLoading,
+    // totalImages,
+    search,
+    // numOfImagePages,
+    page,
+    searchDepartment,
+  } = useAppContext();
 
   useEffect(() => {
     getPhotos();
     // eslint-disable-next-line
-  }, []);
+  }, [search, page, searchDepartment]);
 
   if (isLoading) {
     return <Loading />;

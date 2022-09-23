@@ -2,10 +2,9 @@ import { useAppContext } from "../../../context/appContext";
 import { useEffect } from "react";
 import Wrapper from "../../../assets/wrappers/Figuering";
 import { Topic } from "./Topic";
-import { PageBtnContainer } from "../../PageBtnContainer";
-
+import { Link } from "react-router-dom";
 export const Figuring = () => {
-  const { getPosts, posts, numOfpages } = useAppContext();
+  const { getPosts, posts } = useAppContext();
 
   useEffect(() => {
     getPosts();
@@ -19,7 +18,10 @@ export const Figuring = () => {
           return <Topic key={post._id} {...post} />;
         })}
       </Wrapper>
-      {numOfpages > 1 && <PageBtnContainer />}
+      {/* {numOfpages > 1 && <PageBtnContainer />} */}
+      <button className="btn" style={{ marginBottom: "20px" }}>
+        <Link to={`/all-articles`}>See more posts</Link>
+      </button>
     </section>
   );
 };

@@ -11,6 +11,11 @@ import { ProtectedRoute } from "./ProtectedRoute";
 import { AddLeader } from "./AddLeader";
 import { EditPost } from "./EditPost";
 import { EditEvent } from "./EditEvent";
+import { AddBulleting } from "./AddBulleting";
+import { AddImages } from "./AddImages";
+import { AddPastor } from "./AddPastor";
+import { AddElder } from "./AddElder";
+import { AddWorker } from "./AddWorker";
 
 export {
   AddEvent,
@@ -26,4 +31,9 @@ export {
   ProtectedRoute,
   AddLeader,
   EditEvent,
+  AddBulleting,
+  AddImages,
+  AddPastor,
+  AddElder,
+  AddWorker,
 };

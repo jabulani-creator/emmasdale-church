@@ -14,13 +14,19 @@ import {
   SinglePost,
   OurBeliefs,
   OurHistory,
+  AllThePosts,
 } from "./pages";
 
 import {
+  AddBulleting,
+  AddElder,
   AddEvent,
   AddHealth,
+  AddImages,
   AddLeader,
+  AddPastor,
   AddPost,
+  AddWorker,
   AllEvents,
   AllHealth,
   AllPost,
@@ -54,7 +60,12 @@ function App() {
           <Route path="all-health" element={<AllHealth />} />
           <Route path="add-health" element={<AddHealth />} />
           <Route path="profile" element={<Profile />} />
+          <Route path="add-bulleting" element={<AddBulleting />} />
+          <Route path="add-images" element={<AddImages />} />
           <Route path="add-position" element={<AddLeader />} />
+          <Route path="add-worker" element={<AddWorker />} />
+          <Route path="add-pastor" element={<AddPastor />} />
+          <Route path="add-elder" element={<AddElder />} />
         </Route>
         <Route path="/about" element={<About />} />
         <Route path="/about/our-beliefs" element={<OurBeliefs />} />
@@ -70,6 +81,7 @@ function App() {
 
         <Route path="/" exact element={<Home />} />
         <Route path="/post/:postId" element={<SinglePost />} />
+        <Route path="/all-articles" element={<AllThePosts />} />
         <Route path="/register" element={<Register />} />
         <Route path="/landing" element={<Landing />} />
         <Route path="/new" element={<New />} />

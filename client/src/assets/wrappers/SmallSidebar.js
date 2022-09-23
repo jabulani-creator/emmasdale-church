@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled from "styled-components";
 
 const Wrapper = styled.aside`
   @media (min-width: 992px) {
@@ -41,7 +41,7 @@ const Wrapper = styled.aside`
     cursor: pointer;
   }
   .nav-links {
-    padding-top: 2rem;
+    padding-top: 0.5rem;
     display: flex;
     flex-direction: column;
   }
@@ -49,7 +49,7 @@ const Wrapper = styled.aside`
     display: flex;
     align-items: center;
     color: var(--grey-500);
-    padding: 1rem 0;
+    padding: 0.5rem 0;
     text-transform: capitalize;
     transition: var(--transition);
   }
@@ -72,5 +72,5 @@ const Wrapper = styled.aside`
   .active .icon {
     color: var(--primary-500);
   }
-`
-export default Wrapper
+`;
+export default Wrapper;

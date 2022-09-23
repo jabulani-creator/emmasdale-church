@@ -58,6 +58,29 @@ import {
   GET_SINGLE_EVENT_SUCCESS,
   GET_PHOTOS_BEGIN,
   GET_PHOTOS_SUCCESS,
+  CREATE_PDF_BEGIN,
+  CREATE_PDF_SUCCESS,
+  CREATE_PDF_ERROR,
+  UPLOAD_IMAGE_BEGIN,
+  UPLOAD_IMAGE_SUCCESS,
+  UPLOAD_IMAGE_ERROR,
+  CREATE_PASTOR_BEGIN,
+  CREATE_PASTOR_SUCCESS,
+  CREATE_PASTOR_ERROR,
+  CREATE_WORKER_BEGIN,
+  CREATE_WORKER_SUCCESS,
+  CREATE_WORKER_ERROR,
+  GET_WORKER_BEGIN,
+  GET_WORKER_SUCCESS,
+  GET_PASTOR_BEGIN,
+  GET_PASTOR_SUCCESS,
+  GET_POSITION_BEGIN,
+  GET_POSITION_SUCCESS,
+  CREATE_ELDER_BEGIN,
+  CREATE_ELDER_SUCCESS,
+  CREATE_ELDER_ERROR,
+  GET_ELDER_BEGIN,
+  GET_ELDER_SUCCESS,
 } from "./actions";
 
 import { initialState } from "./appContext";
@@ -188,6 +211,7 @@ const reducer = (state, action) => {
       email: "",
       message: "",
       purpose: "prayer",
+      department: "all",
     };
     return { ...state, ...initialState };
   }
@@ -320,6 +344,7 @@ const reducer = (state, action) => {
       search: "",
       sort: "latest",
       searchPurpose: "all",
+      searchDepartment: "all",
     };
   }
   if (action.type === SET_EDIT_HEALTH_POST) {
@@ -513,7 +538,6 @@ const reducer = (state, action) => {
     return {
       ...state,
       isLoading: false,
-      leader: action.payload.leader,
       showAlert: true,
       alertType: "success",
       alertText: "position created",
@@ -528,7 +552,46 @@ const reducer = (state, action) => {
       alertText: action.payload.msg,
     };
   }
+  if (action.type === GET_POSITION_BEGIN) {
+    return {
+      ...state,
+      isLoading: true,
+    };
+  }
+  if (action.type === GET_POSITION_SUCCESS) {
+    return {
+      ...state,
+      isLoading: false,
+      leaders: action.payload.leaders,
+      totalLeaders: action.payload.totalLeaders,
+      numOfLeaderPages: action.payload.numOfLeaderPages,
+    };
+  }
   /*************************************************************PHOTOS++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+  if (action.type === UPLOAD_IMAGE_BEGIN) {
+    return {
+      ...state,
+      isLoading: true,
+    };
+  }
+  if (action.type === UPLOAD_IMAGE_SUCCESS) {
+    return {
+      ...state,
+      isLoading: false,
+      showAlert: true,
+      alertType: "success",
+      alertText: "New Image Added",
+    };
+  }
+  if (action.type === UPLOAD_IMAGE_ERROR) {
+    return {
+      ...state,
+      isLoading: false,
+      showAlert: true,
+      alertType: "danger",
+      alertText: action.payload.msg,
+    };
+  }
   if (action.type === GET_PHOTOS_BEGIN) {
     return {
       ...state,
@@ -540,10 +603,149 @@ const reducer = (state, action) => {
       ...state,
       isLoading: false,
       images: action.payload.images,
-      totalImages: action.payload.totalImages,
-      numOfImagePages: action.payload.numOfImagePages,
+    };
+  }
+  /**********************************************PDF*********************************************************/
+  if (action.type === CREATE_PDF_BEGIN) {
+    return {
+      ...state,
+      isLoading: true,
+    };
+  }
+  if (action.type === CREATE_PDF_SUCCESS) {
+    return {
+      ...state,
+      isLoading: false,
+      showAlert: true,
+      alertType: "success",
+      alertText: "New bulleting Created",
+    };
+  }
+  if (action.type === CREATE_PDF_ERROR) {
+    return {
+      ...state,
+      isLoading: false,
+      showAlert: true,
+      alertType: "danger",
+      alertText: action.payload.msg,
+    };
+  }
+  /************************************************PASTOR START************************************************************  */
+  if (action.type === CREATE_PASTOR_BEGIN) {
+    return {
+      ...state,
+      isLoading: true,
+    };
+  }
+  if (action.type === CREATE_PASTOR_SUCCESS) {
+    return {
+      ...state,
+      isLoading: false,
+      showAlert: true,
+      alertType: "success",
+      alertText: "position created",
+    };
+  }
+  if (action.type === CREATE_PASTOR_ERROR) {
+    return {
+      ...state,
+      isLoading: false,
+      showAlert: true,
+      alertType: "danger",
+      alertText: action.payload.msg,
+    };
+  }
+  if (action.type === GET_PASTOR_BEGIN) {
+    return {
+      ...state,
+      isLoading: true,
+    };
+  }
+  if (action.type === GET_PASTOR_SUCCESS) {
+    return {
+      ...state,
+      isLoading: false,
+      pastors: action.payload.pastors,
+    };
+  }
+  /************************************************PASTOR END************************************************************  */
+  /************************************************WORKER START************************************************************  */
+  if (action.type === CREATE_WORKER_BEGIN) {
+    return {
+      ...state,
+      isLoading: true,
+    };
+  }
+  if (action.type === CREATE_WORKER_SUCCESS) {
+    return {
+      ...state,
+      isLoading: false,
+      showAlert: true,
+      alertType: "success",
+      alertText: "position created",
+    };
+  }
+  if (action.type === CREATE_WORKER_ERROR) {
+    return {
+      ...state,
+      isLoading: false,
+      showAlert: true,
+      alertType: "danger",
+      alertText: action.payload.msg,
+    };
+  }
+  if (action.type === GET_WORKER_BEGIN) {
+    return {
+      ...state,
+      isLoading: true,
+    };
+  }
+  if (action.type === GET_WORKER_SUCCESS) {
+    return {
+      ...state,
+      isLoading: false,
+      workers: action.payload.workers,
+    };
+  }
+  /************************************************ELDER START************************************************************  */
+  if (action.type === CREATE_ELDER_BEGIN) {
+    return {
+      ...state,
+      isLoading: true,
+    };
+  }
+  if (action.type === CREATE_ELDER_SUCCESS) {
+    return {
+      ...state,
+      isLoading: false,
+      showAlert: true,
+      alertType: "success",
+      alertText: "Elder created",
+    };
+  }
+  if (action.type === CREATE_ELDER_ERROR) {
+    return {
+      ...state,
+      isLoading: false,
+      showAlert: true,
+      alertType: "danger",
+      alertText: action.payload.msg,
+    };
+  }
+  if (action.type === GET_ELDER_BEGIN) {
+    return {
+      ...state,
+      isLoading: true,
+    };
+  }
+  if (action.type === GET_ELDER_SUCCESS) {
+    return {
+      ...state,
+      isLoading: false,
+      elders: action.payload.elders,
     };
   } else {
+    /************************************************WORKER END************************************************************  */
     return { ...state };
   }
 };

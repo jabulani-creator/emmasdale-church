@@ -8,11 +8,11 @@ export const Posts = ({ postTitle, postDesc, _id, createdAt, postPhoto }) => {
   /* eslint-disable no-unused-vars */
   let date = moment(createdAt);
   date = date.format("MMM Do, YYYY");
-  const { setEditPost, deletePost } = useAppContext();
+  const { deletePost } = useAppContext();
   return (
     <div className="topic" style={{ width: "90%" }}>
       <div className="topic-image">
-        <img src={postPhoto} alt="" className="img" />
+        <img src={postPhoto} alt="" className="img-topic" />
       </div>
       <div className="read-content">
         <h5>{postTitle}</h5>
