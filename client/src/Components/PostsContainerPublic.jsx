@@ -1,21 +1,13 @@
 import { useEffect } from "react";
+import { Link } from "react-router-dom";
 import Wrapper from "../assets/wrappers/JobsContainer";
 import { useAppContext } from "../context/appContext";
-import { PageBtnContainer } from "./PageBtnContainer";
 import Loading from "./Loading";
 import { PostsPublic } from "./PostsPublic";
 
 export const PostsContainerPublic = () => {
-  const {
-    getPosts,
-    posts,
-    isLoading,
-    page,
-    totalPost,
-    sort,
-    search,
-    numOfpages,
-  } = useAppContext();
+  const { getPosts, posts, isLoading, page, totalPost, sort, search } =
+    useAppContext();
 
   useEffect(() => {
     getPosts();
@@ -42,7 +34,9 @@ export const PostsContainerPublic = () => {
           return <PostsPublic key={post._id} {...post} />;
         })}
       </div>
-      {numOfpages > 1 && <PageBtnContainer />}
+      <button className="btn" style={{ marginBottom: "20px" }}>
+        <Link to={`/`}>Back Home</Link>
+      </button>
     </Wrapper>
   );
 };

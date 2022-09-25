@@ -20,7 +20,7 @@ const deleteRequest = async (req, res) => {
   const request = await Contact.findOne({ _id: requestId });
 
   if (!request) {
-    throw new CustomError.NotFoundError(`No request with id : ${requestId}`);
+    throw new NotFoundError(`No request with id : ${requestId}`);
   }
 
   await request.remove();
@@ -34,7 +34,6 @@ const getAllRequest = async (req, res) => {
   if (purpose && purpose !== "all") {
     queryObject.purpose = purpose;
   }
-
   let result = Contact.find(queryObject);
 
   if (sort === "latest") {

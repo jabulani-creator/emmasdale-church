@@ -3,7 +3,6 @@ import Wrapper from "../../assets/wrappers/JobsContainer";
 import { useAppContext } from "../../context/appContext";
 import Loading from "../Loading";
 import { SingleRequest } from "./SingleRequest";
-import { RequestPageBtn } from "../RequestPageBtn";
 
 export const RequestContainer = () => {
   const {
@@ -13,14 +12,13 @@ export const RequestContainer = () => {
     page,
     totalRequests,
     searchPurpose,
-    numOfRequestPages,
     sort,
   } = useAppContext();
 
   useEffect(() => {
     getRequests();
     // eslint-disable-next-line
-  }, [searchPurpose, page, sort]);
+  }, [page, sort, searchPurpose]);
 
   if (isLoading) {
     return <Loading />;
@@ -43,8 +41,6 @@ export const RequestContainer = () => {
           return <SingleRequest key={request._id} {...request} />;
         })}
       </div>
-
-      {numOfRequestPages > 1 && <RequestPageBtn />}
     </Wrapper>
   );
 };

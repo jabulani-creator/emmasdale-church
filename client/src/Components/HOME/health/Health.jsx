@@ -1,7 +1,14 @@
 import React, { useState } from "react";
 import moment from "moment";
+import { Link } from "react-router-dom";
 
-export const Health = ({ healthTitle, healthDesc, createdAt, healthPhoto }) => {
+export const Health = ({
+  _id,
+  healthTitle,
+  healthDesc,
+  createdAt,
+  healthPhoto,
+}) => {
   const [readMore, setReadMore] = useState(false);
   let date = moment(createdAt);
   date = date.format("MMM Do, YYYY");
@@ -19,6 +26,9 @@ export const Health = ({ healthTitle, healthDesc, createdAt, healthPhoto }) => {
           {readMore ? "show less" : "read more"}
         </button>
       </p>
+      <button className="btnn">
+        <Link to={`/health/${_id}`}>Read Now</Link>
+      </button>
     </section>
   );
 };

@@ -1,5 +1,4 @@
 import moment from "moment";
-import Wrapper from "../../assets/wrappers/Job";
 import { useAppContext } from "../../context/appContext";
 export const SingleRequest = ({
   _id,
@@ -14,26 +13,30 @@ export const SingleRequest = ({
   let date = moment(createdAt);
   date = date.format("MMM Do, YYYY");
   return (
-    <Wrapper>
-      <header>
+    <div className="topic request" style={{ width: "90%" }}>
+      <div className="request-purpose">
         <div className="main-icon">{purpose.charAt(0)}</div>
-        <div className="infom">
+        <div className="request-data">
           <h5>{name}</h5>
-          <p>{purpose}</p>
+          <h5>{purpose}</h5>
         </div>
-      </header>
+      </div>
+      <div>
+        <div className="request-date">
+          <small>
+            <strong>Email</strong> : {email}
+          </small>
+          <small>
+            <strong>Phone</strong>: {phone}
+          </small>
+        </div>
+        <small>Planned Visit Date: {date}</small>
+        <p>{message}</p>
 
-      <div className="content">
-        <small>{date}</small>
-        <div className="contact">
-          <p>{email}</p>
-          <p>{phone}</p>
-        </div>
-        <p>Detailed request</p>
-        <small>{message}</small>
         <footer>
           <div className="actions">
             <button
+              type="button"
               className="btn delete-btn"
               onClick={() => deleteRequest(_id)}
             >
@@ -42,6 +45,6 @@ export const SingleRequest = ({
           </div>
         </footer>
       </div>
-    </Wrapper>
+    </div>
   );
 };

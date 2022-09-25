@@ -52,7 +52,7 @@ const wrapper = styled.section`
           display: block;
           justify-self: center;
           display: grid;
-          grid-template-columns: repeat(8, 1fr);
+          grid-template-columns: repeat(14, 1fr);
           text-align: center;
           text-transform: UPPERCASE;
           height: 100%;

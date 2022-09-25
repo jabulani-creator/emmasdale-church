@@ -21,6 +21,7 @@ const ImagaContainer = () => {
     // eslint-disable-next-line
   }, [search, page, searchDepartment]);
 
+  console.log(images);
   if (isLoading) {
     return <Loading />;
   }
@@ -33,18 +34,10 @@ const ImagaContainer = () => {
   }
   return (
     <main>
-      {/* <section className="search">
-        <form className="search-form">
-          <input type="text" placeholder="Search" className="form-inputS" />
-          <button type="submit" className="submit-btnS">
-            <FaSearch />
-          </button>
-        </form>
-      </section> */}
       <section className="photos">
         <div className="photos-center">
-          {images.map((photo) => {
-            return <ImageGallery key={photo._id} {...photo} />;
+          {images.map((img) => {
+            return <ImageGallery key={img._id} {...img} />;
           })}
         </div>
         {isLoading && <h2 className="loading">Loading...</h2>}

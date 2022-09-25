@@ -1,87 +1,94 @@
-import Wrapper from '../../assets/wrappers/DashboardFormPage'
-import { Alert} from '../../Components'
-import { useAppContext } from '../../context/appContext'
+import { useState } from "react";
+import Wrapper from "../../assets/wrappers/DashboardFormPage";
+import { Alert } from "../../Components";
+import { useAppContext } from "../../context/appContext";
 
+const initialState = { healthTitle: "", healthDesc: "", healthPhoto: "" };
 export const AddHealth = () => {
-  const {
-    isLoading,
-    showAlert,
-    displayAlert,
-    isEditing,
-    healthTitle,
-    healthDesc,
-    clearValues,
-    handleChange,
-    createHealthPost,
-    editHealth
-  } = useAppContext()
-  const handleSubmit = (e) => {
-    e.preventDefault()
+  const [values, setValues] = useState(initialState);
+  const { isLoading, showAlert, displayAlert, clearValues, createHealthPost } =
+    useAppContext();
 
-    if(!healthTitle || !healthDesc){
-      displayAlert()
-      return
+  const onSubmit = (e) => {
+    e.preventDefault();
+    const { healthTitle, healthDesc } = values;
+
+    if (!healthTitle || !healthDesc) {
+      displayAlert();
+      return;
     }
-    if(isEditing){
-      editHealth()
-      return
-    }
-    createHealthPost()
-  }
-  const handlePostInput = (e) => {
-    const name = e.target.name
-    const value = e.target.value
-    handleChange({name, value})
-  }
+
+    const formdata = new FormData();
+    formdata.append("healthTitle", values.healthTitle);
+    formdata.append("healthDesc", values.healthDesc);
+    formdata.append("healthPhoto", values.healthPhoto);
+
+    createHealthPost(formdata);
+  };
+  const handleChange = (e) => {
+    setValues({ ...values, [e.target.name]: e.target.value });
+  };
+
+  const handlePhoto = (e) => {
+    setValues({ ...values, healthPhoto: e.target.files[0] });
+    console.log(values.healthPhoto);
+  };
   return (
     <Wrapper>
-      <form className="form">
-        <h3>{isEditing ? 'edit health post' : 'add health post'}</h3>
+      <form className="form" encType="multipart/form-data" onSubmit={onSubmit}>
+        <h3>add health post</h3>
         {showAlert && <Alert />}
         <div className="form-row">
-        <label htmlFor="title" className="form-label">Health Tip Title</label>
-        <input 
+          <label htmlFor="title" className="form-label">
+            Health Tip Title
+          </label>
+          <input
             type="text"
-            placeholder='what is diabetes'
-            name='healthTitle'
-            className='form-input'
-            value={healthTitle}
-             onChange={handlePostInput}
-            />
+            placeholder="what is diabetes"
+            name="healthTitle"
+            className="form-input"
+            value={values.healthTitle}
+            onChange={handleChange}
+          />
         </div>
         <div className="form-row">
-        <label htmlFor="healthDesc" className="form-label">Message</label>
-        <textarea 
-             name="healthDesc"
-             value={healthDesc}
-             className='form-textarea'
-             onChange={handlePostInput}
-           />
+          <label htmlFor="healthDesc" className="form-label">
+            Message
+          </label>
+          <textarea
+            name="healthDesc"
+            value={values.healthDesc}
+            className="form-textarea"
+            onChange={handleChange}
+          />
         </div>
-        {/* <input
+        <div className="form-row">
+          <input
             type="file"
-            name="postPhoto"
-          /> */}
-          <div className="btn-container">
-            <button 
-            className="btn btn-block submit-btn" 
-            type='submit'
-            onClick={handleSubmit}
+            accept=".jpg,.png,.jpeg"
+            name="healthPhoto"
+            onChange={handlePhoto}
+          />
+        </div>
+        <div className="btn-container">
+          <button
+            className="btn btn-block submit-btn"
+            type="submit"
             disabled={isLoading}
-            >
+          >
             submit
-            </button>
-            <button 
-            className="btn btn-block clear-btn" 
+          </button>
+          <button
+            className="btn btn-block clear-btn"
             onClick={(e) => {
-              e.preventDefault()
-              clearValues()
+              e.preventDefault();
+              clearValues();
             }}
-            >
+          >
             clear
-            </button>
-          </div>
+          </button>
+        </div>
       </form>
     </Wrapper>
-  )
-}
+  );
+};

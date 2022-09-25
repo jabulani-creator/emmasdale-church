@@ -8,7 +8,7 @@ export const RequestSearch = () => {
     purposeOptions,
     handleChange,
     clearFilters,
-    // searchPurpose,
+    searchPurpose,
     sort,
     sortOptions,
   } = useAppContext();
@@ -25,13 +25,13 @@ export const RequestSearch = () => {
     <Wrapper>
       <form className="form">
         <div className="form-center">
-          {/* <FormRowSelect
+          <FormRowSelect
             labelText="search purpose"
             name="searchPurpose"
             value={searchPurpose}
             handleChange={handleSearch}
             list={["all", ...purposeOptions]}
-          /> */}
+          />
 
           <FormRowSelect
             labelText="sort"

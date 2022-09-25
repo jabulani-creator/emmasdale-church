@@ -28,7 +28,6 @@ export const AddEvent = () => {
       return;
     }
 
-    console.log(values);
     const formdata = new FormData();
     formdata.append("eventTitle", values.eventTitle);
     formdata.append("eventDate", values.eventDate);
@@ -37,15 +36,6 @@ export const AddEvent = () => {
     formdata.append("eventPhoto", values.eventPhoto);
 
     createEvent(formdata);
-    if (!isLoading) {
-      setValues({
-        eventTitle: "",
-        eventDate: "",
-        venue: "",
-        time: "",
-        eventPhoto: "",
-      });
-    }
   };
 
   const handleChange = (e) => {
@@ -54,7 +44,6 @@ export const AddEvent = () => {
 
   const handlePhoto = (e) => {
     setValues({ ...values, eventPhoto: e.target.files[0] });
-    console.log(values.eventPhoto);
   };
   return (
     <Wrapper>

@@ -1,4 +1,4 @@
-import { RequestContainer, RequestSearch} from '../../Components'
+import { RequestContainer, RequestSearch } from "../../Components";
 
 export const Request = () => {
   return (
@@ -6,5 +6,5 @@ export const Request = () => {
       <RequestSearch />
       <RequestContainer />
     </>
-  )
-}
+  );
+};

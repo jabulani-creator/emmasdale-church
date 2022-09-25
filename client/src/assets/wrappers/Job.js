@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled from "styled-components";
 
 const Wrapper = styled.article`
   background: var(--white);
@@ -30,7 +30,7 @@ const Wrapper = styled.article`
     color: var(--white);
     margin-right: 2rem;
   }
-  .infom {
+  .infog {
     h5 {
       margin-bottom: 0.25rem;
     }
@@ -55,12 +55,6 @@ const Wrapper = styled.article`
   }
   .content {
     padding: 1rem 1.5rem;
-
-    .contact{
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
   }
   .content-center {
     display: grid;
@@ -106,6 +100,6 @@ const Wrapper = styled.article`
   &:hover .actions {
     visibility: visible;
   }
-`
+`;
 
-export default Wrapper
+export default Wrapper;

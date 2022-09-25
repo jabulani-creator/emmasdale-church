@@ -15,12 +15,12 @@ export const Health = ({
   let date = moment(createdAt);
   date = date.format("MMM Do, YYYY");
 
-  const { setEditHealthPost, deleteHealthPost } = useAppContext();
+  const { deleteHealthPost } = useAppContext();
 
   return (
     <div className="topic" style={{ width: "90%" }}>
       <div className="topic-image">
-        <img src={healthPhoto} alt="" className="img" />
+        <img src={healthPhoto} alt="" className="img-topic" />
       </div>
       <div className="read-content">
         <h5>{healthTitle}</h5>

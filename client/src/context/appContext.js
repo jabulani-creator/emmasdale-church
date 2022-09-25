@@ -104,8 +104,6 @@ export const initialState = {
   userPosition: userPosition || "",
   isEditing: false,
   editHealthId: "",
-  healthTitle: "",
-  healthDesc: "",
   showSidebar: false,
   posts: [],
   events: [],
@@ -374,15 +372,10 @@ const AppProvider = ({ children }) => {
   };
   /********************************************** POSTS END******************************************* */
   /********************************************** HEALTH POSTS ******************************************* */
-  const createHealthPost = async () => {
+  const createHealthPost = async (health) => {
     dispatch({ type: CREATE_HEALTH_POST_BEGIN });
     try {
-      const { healthTitle, healthDesc } = state;
-
-      await authFetch.post("/health", {
-        healthTitle,
-        healthDesc,
-      });
+      await authFetch.post("/health", health);
 
       dispatch({ type: CREATE_HEALTH_POST_SUCCESS });
       dispatch({ type: CLEAR_VALUES });
@@ -518,6 +511,7 @@ const AppProvider = ({ children }) => {
       await authFetch.delete(`events/${eventId}`);
       getEvents();
     } catch (error) {
+      console.log(error);
       loginUser();
     }
   };
@@ -561,7 +555,6 @@ const AppProvider = ({ children }) => {
     try {
       const { data } = await authFetch(url);
       const { requests, totalRequests, numOfRequestPages } = data;
-      console.log(requests);
       dispatch({
         type: GET_REQUEST_SUCCESS,
         payload: {

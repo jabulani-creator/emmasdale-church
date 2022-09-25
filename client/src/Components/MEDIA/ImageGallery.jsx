@@ -2,9 +2,9 @@ import React from "react";
 
 const ImageGallery = ({ image, department }) => {
   return (
-    <article className="photo">
-      <img src={image} alt={department} />
-    </article>
+    <div className="image">
+      <img src={image} alt={department} className="img" />
+    </div>
   );
 };
 

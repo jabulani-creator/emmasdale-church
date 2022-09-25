@@ -16,6 +16,8 @@ import {
   OurHistory,
   AllThePosts,
   AddReview,
+  AllTheHealthPosts,
+  HealthSingle,
 } from "./pages";
 
 import {
@@ -82,7 +84,9 @@ function App() {
 
         <Route path="/" exact element={<Home />} />
         <Route path="/post/:postId" element={<SinglePost />} />
+        <Route path="/health/:healthId" element={<HealthSingle />} />
         <Route path="/all-articles" element={<AllThePosts />} />
+        <Route path="/all-health-posts" element={<AllTheHealthPosts />} />
         <Route path="/register" element={<Register />} />
         <Route path="/landing" element={<Landing />} />
         <Route path="/new" element={<New />} />

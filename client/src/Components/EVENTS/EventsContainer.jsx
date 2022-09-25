@@ -2,13 +2,16 @@ import React, { useEffect } from "react";
 import Wrapper from "../../assets/wrappers/JobsContainer";
 import { useAppContext } from "../../context/appContext";
 import Loading from "../Loading";
+import { PageBtnContainer } from "../PageBtnContainer";
 import { Events } from "./Events";
 
 export const EventsContainer = () => {
-  const { getEvents, events, isLoading, totalEvents } = useAppContext();
+  const { getEvents, events, isLoading, totalEvents, numOfEventsPages } =
+    useAppContext();
 
   useEffect(() => {
     getEvents();
+    // eslint-disable-next-line
   }, []);
 
   if (isLoading) {
@@ -29,6 +32,7 @@ export const EventsContainer = () => {
           return <Events key={event._id} {...event} />;
         })}
       </div>
+      {numOfEventsPages > 1 && <PageBtnContainer />}
     </Wrapper>
   );
 };

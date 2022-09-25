@@ -43,7 +43,7 @@ const deleteEvent = async (req, res) => {
   res.status(StatusCodes.OK).json({ msg: "Success! Event removed" });
 };
 const getAllEvents = async (req, res) => {
-  const events = await Event.find();
+  const events = await Event.find().sort({ eventDate: 1 });
 
   res
     .status(StatusCodes.OK)

@@ -4,6 +4,7 @@ import {
   createHealthPost,
   deleteHealthPost,
   getAllHealthPosts,
+  getHealthPost,
   updateHealthPost,
 } from "../controllers/healthController.js";
 import authenticateUser from "../middleware/auth.js";
@@ -16,6 +17,7 @@ router
 router
   .route("/:id")
   .delete(authenticateUser, deleteHealthPost)
-  .patch(Upload.single("healthPhoto"), authenticateUser, updateHealthPost);
+  .patch(Upload.single("healthPhoto"), authenticateUser, updateHealthPost)
+  .get(getHealthPost);
 
 export default router;

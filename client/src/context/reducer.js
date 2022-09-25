@@ -46,7 +46,6 @@ import {
   DELETE_REQUEST_BEGIN,
   GET_EVENTS_BEGIN,
   GET_EVENTS_SUCCESS,
-  SET_EDIT_EVENT,
   DELETE_EVENT_BEGIN,
   EDIT_EVENT_BEGIN,
   EDIT_EVENT_SUCCESS,
@@ -54,8 +53,6 @@ import {
   CREATE_POSITION_SUCCESS,
   CREATE_POSITION_BEGIN,
   CREATE_POSITION_ERROR,
-  GET_SINGLE_EVENT_BEGIN,
-  GET_SINGLE_EVENT_SUCCESS,
   GET_PHOTOS_BEGIN,
   GET_PHOTOS_SUCCESS,
   CREATE_PDF_BEGIN,
@@ -202,15 +199,6 @@ const reducer = (state, action) => {
   }
   if (action.type === CLEAR_VALUES) {
     const initialState = {
-      isEditing: false,
-      editPostId: "",
-      postTitle: "",
-      postDesc: "",
-      healthTitle: "",
-      healthDesc: "",
-      eventTitle: "",
-      eventDate: "",
-      eventDesc: "",
       name: "",
       phone: "",
       email: "",
@@ -418,19 +406,7 @@ const reducer = (state, action) => {
       alertText: action.payload.msg,
     };
   }
-  if (action.type === GET_SINGLE_EVENT_BEGIN) {
-    return {
-      ...state,
-      isLoading: true,
-    };
-  }
-  if (action.type === GET_SINGLE_EVENT_SUCCESS) {
-    return {
-      ...state,
-      isLoading: false,
-      event: action.payload.event,
-    };
-  }
+
   if (action.type === CREATE_REQUEST_BEGIN) {
     return {
       ...state,
@@ -491,18 +467,7 @@ const reducer = (state, action) => {
       numOfEventsPages: action.payload.numOfEventsPages,
     };
   }
-  if (action.type === SET_EDIT_EVENT) {
-    const event = state.events.find((event) => event._id === action.payload.id);
-    const { _id, eventTitle, eventDate, eventDesc } = event;
-    return {
-      ...state,
-      isEditing: true,
-      editPostId: _id,
-      eventDate,
-      eventDesc,
-      eventTitle,
-    };
-  }
+
   if (action.type === DELETE_EVENT_BEGIN) {
     return {
       ...state,
@@ -648,7 +613,7 @@ const reducer = (state, action) => {
       isLoading: false,
       showAlert: true,
       alertType: "success",
-      alertText: "position created",
+      alertText: "Pastor created",
     };
   }
   if (action.type === CREATE_PASTOR_ERROR) {
@@ -726,7 +691,7 @@ const reducer = (state, action) => {
       isLoading: false,
       showAlert: true,
       alertType: "success",
-      alertText: "position created",
+      alertText: "Worker created",
     };
   }
   if (action.type === CREATE_WORKER_ERROR) {

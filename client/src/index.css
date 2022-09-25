@@ -1183,3 +1183,52 @@ EVENTS
     text-transform: uppercase;
   }
 }
+
+.mini-title {
+  color: var(--primary-500);
+  text-transform: uppercase;
+}
+
+/*
+=============== 
+Request
+===============
+*/
+.main-icon {
+  width: 60px;
+  height: 60px;
+  display: grid;
+  place-items: center;
+  background: var(--primary-500);
+  border-radius: var(--borderRadius);
+  font-size: 1.5rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--white);
+  margin-right: 2rem;
+}
+.request {
+  background: var(--white);
+  border-radius: var(--borderRadius);
+  padding: 20px;
+  box-shadow: var(--shadow-2);
+}
+.request-purpose {
+  display: flex;
+}
+.request-data h5 {
+  margin-bottom: 0.25rem;
+}
+.request-data p {
+  margin: 0;
+  text-transform: capitalize;
+  color: var(--grey-400);
+  letter-spacing: var(--letterSpacing);
+}
+.request-date {
+  padding: 10px 0;
+  display: flex;
+}
+.request-date small {
+  padding: 10px;
+}

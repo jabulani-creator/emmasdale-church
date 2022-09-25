@@ -18,6 +18,7 @@ import { RequestSearch } from "./REQUESTS/RequestSearch";
 import { RequestPageBtn } from "./RequestPageBtn";
 import { EventsContainer } from "./EVENTS/EventsContainer";
 import { SearchEvent } from "./EVENTS/SearchEvent";
+import { PublicHealthContainer } from "./PublicHealthContainer";
 
 export {
   HeaderLogin,
@@ -40,4 +41,5 @@ export {
   RequestPageBtn,
   EventsContainer,
   SearchEvent,
+  PublicHealthContainer,
 };

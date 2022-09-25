@@ -61,10 +61,10 @@ const getAllHealthPosts = async (req, res) => {
     result = result.sort("createdAt");
   }
   if (sort === "a-z") {
-    result = result.sort("postTitle");
+    result = result.sort("healthTitle");
   }
   if (sort === "z-a") {
-    result = result.sort("-postTitle");
+    result = result.sort("-healthTitle");
   }
 
   const page = Number(req.query.page) || 1;
@@ -107,10 +107,19 @@ const updateHealthPost = async (req, res) => {
   );
   res.status(StatusCodes.OK).json({ updatedHealthPost });
 };
+const getHealthPost = async (req, res) => {
+  const { id: healthPostId } = req.params;
+  const health = await Health.findById({ _id: healthPostId });
+  if (!health) {
+    throw new NotFoundError(`No Health post with id ${healthPostId}`);
+  }
+  res.status(StatusCodes.CREATED).json(health);
+};
 
 export {
   createHealthPost,
   deleteHealthPost,
   getAllHealthPosts,
   updateHealthPost,
+  getHealthPost,
 };

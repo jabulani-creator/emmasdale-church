@@ -5,9 +5,8 @@ import {
   deleteRequest,
   getAllRequest,
 } from "../controllers/contactController.js";
-import authenticateUser from "../middleware/auth.js";
 
-router.route("/").post(createRequest).get(authenticateUser, getAllRequest);
-router.route("/:id").delete(authenticateUser, deleteRequest);
+router.route("/").post(createRequest).get(getAllRequest);
+router.route("/:id").delete(deleteRequest);
 
 export default router;

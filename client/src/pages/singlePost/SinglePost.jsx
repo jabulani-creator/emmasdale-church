@@ -6,6 +6,7 @@ import Wrapper from "../../assets/wrappers/singlePost";
 import Loading from "../../Components/Loading";
 import axios from "axios";
 import { Navigation } from "../../Components/Navigation";
+
 export const SinglePost = () => {
   const { postId } = useParams();
   const { token } = useAppContext();
@@ -42,7 +43,6 @@ export const SinglePost = () => {
         </Wrapper>
         <div>
           <h4 className="title primary left">{postTitle}</h4>
-
           <p className="right-paragraph">{postDesc}</p>
         </div>
         <button className="btnn" style={{ marginBottom: "20px" }}>

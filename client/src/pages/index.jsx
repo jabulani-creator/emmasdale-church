@@ -13,6 +13,8 @@ import { OurBeliefs } from "./about/OurBeliefs";
 import { OurHistory } from "./about/OurHistory";
 import AllThePosts from "./AllThePosts";
 import { AddReview } from "./AddReview";
+import AllTheHealthPosts from "./AllTheHealthPosts";
+import { HealthSingle } from "./healthSinglePost/HealthSingle";
 export {
   Error,
   Register,
@@ -29,4 +31,6 @@ export {
   OurHistory,
   AllThePosts,
   AddReview,
+  AllTheHealthPosts,
+  HealthSingle,
 };
