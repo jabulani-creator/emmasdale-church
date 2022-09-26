@@ -17,7 +17,7 @@ export const Topic = ({ postTitle, postDesc, _id, createdAt, postPhoto }) => {
       <div className="read-content">
         <h4>{postTitle}</h4>
         <small>{date}</small>
-        <p>{readMore ? postDesc : `${postDesc.substring(0, 500)}...`}</p>
+        <p>{readMore ? postDesc : `${postDesc.substring(0, 300)}...`}</p>
         <button className="btnn">
           <Link to={`/post/${_id}`}>Read Now</Link>
         </button>

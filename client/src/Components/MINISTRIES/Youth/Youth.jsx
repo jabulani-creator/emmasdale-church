@@ -1,9 +1,9 @@
 import {
   Footer,
-  Header,
   Info,
   Normal,
   NormalFlex,
+  PageHero,
   Reverse,
 } from "../../GLOBAL";
 import { Navigation } from "../../Navigation";
@@ -11,7 +11,8 @@ import { Navigation } from "../../Navigation";
 export const Youth = () => {
   return (
     <>
-      <Header title="Youth" />
+      <Navigation />
+      <PageHero title="YOUTH" />
       <section className="section">
         <Normal paragraph="Twice in our past, brave writers have undertaken the task of putting the Youth Department history into print. The first was Matilda Erickson, the very first secretary in the first youth department working with the first director, M. E. Kern. The second one was tried by a historian by the name of Nathaniel Krum, under the guidance of the newly-elected world youth director, Theodore Lucas. No matter how hard one tries, the story gets abbreviated, lost in time, fuzzy and less precise. Also, it easily gets reduced to a few names and dates. We forget that these were/are people; people who loved God; people who have tons of exciting moments, difficult moments, shattered moments, moments we could all learn valuable lessons from. The true heroes are the youth of the past, present and future who follow our aim, “The Advent message to all the world in my generation.”" />
         <div className="youtube">

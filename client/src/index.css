@@ -45,12 +45,14 @@ html {
   --grey-100: #d9e2ec;
   --grey-200: #bcccdc;
   --grey-300: #9fb3c8;
+  --clr-grey-3: hsl(209, 34%, 30%);
   --grey-400: #829ab1;
   --grey-500: #627d98;
   --grey-600: #486581;
   --grey-700: #334e68;
   --grey-800: #243b53;
   --grey-900: #102a43;
+  --clr-grey-special: #eae6eb;
   /* rest of the colors */
   --black: #222;
   --special-500: #ffa31b;
@@ -59,6 +61,7 @@ html {
   --red-dark: #842029;
   --green-light: #d1e7dd;
   --green-dark: #0f5132;
+  --clr-red-special: #b4345c;
 
   /* fonts  */
   /* --headingFont: 'Roboto Condensed', Sans-Serif; */
@@ -75,6 +78,7 @@ html {
   --transition: 0.3s ease-in-out all;
   --max-width: 1120px;
   --fixed-width: 500px;
+  --radius: 0.25rem;
   --fluid-width: 80vw;
   --breakpoint-lg: 992px;
   --nav-height: 80px;
@@ -86,6 +90,7 @@ html {
     0 4px 6px -2px rgba(0, 0, 0, 0.05);
   --shadow-4: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
     0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  --light-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 }
 
 body {
@@ -197,8 +202,8 @@ li {
 
 .img-circle {
   border-radius: 50%;
-  height: 100%;
-  width: 100%;
+  height: 100px;
+  width: 100px;
 }
 .image-flex {
   flex: 4;
@@ -475,43 +480,82 @@ form-control input:focus,
   height: 350px;
   position: relative;
 }
-/*Question*/
-.question {
-  padding: 1rem 1.5rem;
-  border: 2px solid var(--grey-special);
-  margin-bottom: 1rem;
-  border-radius: var(--borderRadius);
-  box-shadow: var(--shadow-2);
-  background-color: var(--grey-200);
+/*
+=============== 
+Questions
+===============
+*/
+
+main {
+  min-height: 100vh;
+  /* using flex because of better browser support */
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
+.container {
+  width: 90vw;
+  margin: 5rem auto;
+  background: var(--clr-white);
+  border-radius: var(--radius);
+  padding: 2.5rem 2rem;
+  max-width: var(--fixed-width);
+  display: grid;
+  gap: 1rem 2rem;
+}
+.container h3 {
+  line-height: 1.2;
+  font-weight: 500;
+}
+@media screen and (min-width: 992px) {
+  .container {
+    display: grid;
+    grid-template-columns: 250px 1fr;
+  }
+}
+.question {
+  padding: 1rem 1.5rem;
+  border: 2px solid var(--clr-grey-special);
+  margin-bottom: 1rem;
+  /* border-radius: var(--radius); */
+  /* box-shadow: var(--light-shadow); */
+  border-radius: var(--borderRadius);
+  box-shadow: var(--light-shadow);
+  background-color: var(--grey-500);
+}
+.question h4 {
+  text-transform: none;
+  line-height: 1.5;
+}
+.question p {
+  color: var(--clr-grey-3);
+  margin-bottom: 0;
+  margin-top: 0.5rem;
+}
 .question header {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
-
 .question header h4 {
   margin-bottom: 0;
-  color: var(--primary-500);
 }
-
 .btn-q {
   background: transparent;
   border-color: transparent;
   width: 2rem;
   height: 2rem;
-  background: var(--grey-special);
+  background: var(--grey-200);
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: 50%;
-  color: black;
+  border-radius: 40%;
+  color: var(--clr-red-special);
   cursor: pointer;
   margin-left: 1rem;
   align-self: center;
   min-width: 2rem;
-  /* transition: var(--transition); */
 }
 
 .emmas {
@@ -1119,7 +1163,8 @@ EVENTS
   background-color: var(--backgroundColor);
   height: 90px;
   bottom: 0px;
-  left: 13%;
+  left: 50%;
+  transform: translate(-50%, 0%);
   color: #044e54;
   display: flex;
   align-items: center;
@@ -1147,6 +1192,7 @@ EVENTS
   flex-direction: column-reverse;
   text-transform: uppercase;
 }
+
 @media screen and (max-width: 768px) {
   .image {
     position: relative;
@@ -1163,7 +1209,8 @@ EVENTS
     background-color: var(--backgroundColor);
     height: 70px;
     bottom: 0px;
-    left: 5%;
+    left: 50%;
+    transform: translate(-50%, 0%);
     color: var(--black);
   }
   .venue {
@@ -1231,4 +1278,9 @@ Request
 }
 .request-date small {
   padding: 10px;
+}
+
+.connect-sub {
+  width: 70%;
+  margin: auto;
 }

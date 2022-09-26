@@ -1,17 +1,11 @@
-import {
-  Footer,
-  Header,
-  Info,
-  LearnMore,
-  Navigation,
-  Normal,
-} from "../../GLOBAL";
+import { Footer, Info, LearnMore, Normal, PageHero } from "../../GLOBAL";
+import { Navigation } from "../../../Components/Navigation";
 
 export const Children = () => {
   return (
     <>
-     
-      <Header title="Children’s Ministries" />
+      <Navigation />
+      <PageHero title="Children’s Ministries" />
       <Normal
         title="Our Mission"
         paragraph="The mission of the Children’s Ministries Department is to nurture children into a loving, serving relationship with Jesus."
