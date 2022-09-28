@@ -11,8 +11,9 @@ const Wrapper = styled.div`
 
   .ImageContainer {
     flex: 1;
-    width: 70px;
+    width: 100px;
     // height: 30px;
+    margin: 5px auto;
   }
 
   .Details {

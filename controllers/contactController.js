@@ -9,7 +9,6 @@ const createRequest = async (req, res) => {
   if (!name || !phone) {
     throw new BadRequestError("Please Provide All Values");
   }
-
   const request = await Contact.create(req.body);
   res.status(StatusCodes.CREATED).json({ request });
 };

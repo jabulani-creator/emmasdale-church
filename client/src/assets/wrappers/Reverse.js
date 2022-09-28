@@ -18,6 +18,9 @@ const Wrapper = styled.section`
   .MessageContainer {
     flex: 1;
     margin: 30px;
+    @media screen and (max-width: 768px) {
+      margin: 0;
+    }
     .left_align {
       text-align: left;
       margin: 50px auto 10px auto;

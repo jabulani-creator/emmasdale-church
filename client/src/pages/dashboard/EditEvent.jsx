@@ -39,13 +39,11 @@ export const EditEvent = () => {
       displayAlert();
       return;
     }
-    console.log(values);
     let formData = new FormData();
     formData.append("eventTitle", values.eventTitle);
     formData.append("eventDate", values.eventDate);
     formData.append("eventDesc", values.eventDesc);
     formData.append("eventPhoto", values.eventPhoto);
-    console.log(formData);
 
     editEvent(eventId, formData);
     if (!isLoading) {
@@ -64,7 +62,6 @@ export const EditEvent = () => {
 
   const handlePhoto = (e) => {
     setValues({ ...values, eventPhoto: e.target.files[0] });
-    console.log(values.eventPhoto);
   };
   return (
     <Wrapper>

@@ -31,7 +31,6 @@ export const AddHealth = () => {
 
   const handlePhoto = (e) => {
     setValues({ ...values, healthPhoto: e.target.files[0] });
-    console.log(values.healthPhoto);
   };
   return (
     <Wrapper>

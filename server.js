@@ -35,7 +35,7 @@ import workerRouter from "./routes/workerRoute.js";
 import pastorRouter from "./routes/pastorRoute.js";
 import eldersRouter from "./routes/eldersRoute.js";
 import reviewRouter from "./routes/reviewRoute.js";
-
+import resourceRouter from "./routes/resourceRoute.js";
 //middleware
 import notFoundMiddleware from "./middleware/not-found.js";
 import errorHandlerMiddleware from "./middleware/error-handler.js";
@@ -77,6 +77,7 @@ app.use("/api/v1/worker", workerRouter);
 app.use("/api/v1/pastor", pastorRouter);
 app.use("/api/v1/elder", eldersRouter);
 app.use("/api/v1/review", reviewRouter);
+app.use("/api/v1/resource", resourceRouter);
 
 app.get("*", function (request, response) {
   response.sendFile(path.resolve(__dirname, "./client/build", "index.html"));

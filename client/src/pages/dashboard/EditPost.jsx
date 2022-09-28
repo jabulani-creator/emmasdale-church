@@ -50,7 +50,6 @@ export const EditPost = () => {
 
   const handlePhoto = (e) => {
     setValues({ ...values, postPhoto: e.target.files[0] });
-    console.log(values.postPhoto);
   };
 
   return (

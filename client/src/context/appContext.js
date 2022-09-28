@@ -86,6 +86,10 @@ import {
   CREATE_REVIEW_ERROR,
   GET_REVIEW_BEGIN,
   GET_REVIEW_SUCCESS,
+  CREATE_RESOURCE_BEGIN,
+  CREATE_RESOURCE_SUCCESS,
+  CREATE_RESOURCE_ERROR,
+  GET_RESOURCE_BEGIN,
 } from "./actions";
 import axios from "axios";
 
@@ -141,6 +145,7 @@ export const initialState = {
   totalRequests: 0,
   numOfRequestPages: 1,
   searchPurpose: "all",
+  resources: [],
 };
 
 const AppContext = React.createContext();
@@ -327,7 +332,7 @@ const AppProvider = ({ children }) => {
     try {
       const { data } = await axios.get(url);
       const { posts, totalPost, numOfpages } = data;
-
+      console.log(data.posts);
       dispatch({
         type: GET_POST_SUCCESS,
         payload: {
@@ -597,6 +602,7 @@ const AppProvider = ({ children }) => {
         payload: { msg: error.response.data.msg },
       });
     }
+    clearAlert();
   };
   const getPositions = async () => {
     dispatch({ type: GET_POSITION_BEGIN });
@@ -625,6 +631,7 @@ const AppProvider = ({ children }) => {
         payload: { msg: error.response.data.msg },
       });
     }
+    clearAlert();
   };
   const getReviews = async () => {
     dispatch({ type: GET_REVIEW_BEGIN });
@@ -653,6 +660,7 @@ const AppProvider = ({ children }) => {
         payload: { msg: error.response.data.msg },
       });
     }
+    clearAlert();
   };
   const getPastors = async () => {
     dispatch({ type: GET_PASTOR_BEGIN });
@@ -679,6 +687,7 @@ const AppProvider = ({ children }) => {
         payload: { msg: error.response.data.msg },
       });
     }
+    clearAlert();
   };
   const getWorkers = async () => {
     dispatch({ type: GET_WORKER_BEGIN });
@@ -704,6 +713,7 @@ const AppProvider = ({ children }) => {
         payload: { msg: error.response.data.msg },
       });
     }
+    clearAlert();
   };
   const getElders = async () => {
     dispatch({ type: GET_ELDER_BEGIN });
@@ -727,6 +737,7 @@ const AppProvider = ({ children }) => {
         payload: { msg: error.response.data.msg },
       });
     }
+    clearAlert();
   };
   const getPhotos = async () => {
     const { page, search, searchDepartment } = state;
@@ -756,6 +767,41 @@ const AppProvider = ({ children }) => {
   };
 
   /********************************************** PHOTOS END ******************************************* */
+  /********************************************** PHOTOS START ******************************************* */
+  const createResource = async (resource) => {
+    dispatch({ type: CREATE_RESOURCE_BEGIN });
+    try {
+      await authFetch.post("/resource", resource);
+      dispatch({ type: CREATE_RESOURCE_SUCCESS });
+      dispatch({ type: CLEAR_VALUES });
+    } catch (error) {
+      dispatch({
+        type: CREATE_RESOURCE_ERROR,
+        payload: { msg: error.response.data.msg },
+      });
+    }
+    clearAlert();
+  };
+  const getResources = async () => {
+    let url = `/api/v1/resource`;
+
+    dispatch({ type: GET_RESOURCE_BEGIN });
+    try {
+      const { data } = await axios.get(url);
+      const { resources } = data;
+      console.log(resources);
+      dispatch({
+        type: GET_PHOTOS_SUCCESS,
+        payload: { resources },
+      });
+    } catch (error) {
+      console.log(error);
+    }
+
+    clearAlert();
+  };
+
+  /********************************************** PHOTOS END ******************************************* */
   /********************************************** PDF START ******************************************* */
   const createBulleting = async (currentBulleting) => {
     dispatch({ type: CREATE_PDF_BEGIN });
@@ -769,6 +815,7 @@ const AppProvider = ({ children }) => {
         payload: { msg: error.response.data.msg },
       });
     }
+    clearAlert();
   };
 
   /********************************************** PHOTOS START ******************************************* */
@@ -825,6 +872,8 @@ const AppProvider = ({ children }) => {
         getElders,
         createReview,
         getReviews,
+        createResource,
+        getResources,
       }}
     >
       {children}

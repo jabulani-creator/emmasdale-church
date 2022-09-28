@@ -21,7 +21,6 @@ const ImagaContainer = () => {
     // eslint-disable-next-line
   }, [search, page, searchDepartment]);
 
-  console.log(images);
   if (isLoading) {
     return <Loading />;
   }

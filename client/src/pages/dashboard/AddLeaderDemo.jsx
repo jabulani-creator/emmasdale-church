@@ -62,7 +62,7 @@ export const AddLeader = () => {
       displayAlert();
       return;
     }
-    console.log(values);
+
     const currentLeader = {
       leaderName,
       leaderEmail,

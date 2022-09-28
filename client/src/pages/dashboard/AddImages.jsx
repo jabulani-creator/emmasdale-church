@@ -25,7 +25,6 @@ export const AddImages = () => {
 
   const handlePhoto = (e) => {
     setValues({ ...values, image: e.target.files[0] });
-    console.log(values.image);
   };
   return (
     <Wrapper>

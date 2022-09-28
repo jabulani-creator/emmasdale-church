@@ -83,6 +83,11 @@ import {
   CREATE_REVIEW_ERROR,
   GET_REVIEW_BEGIN,
   GET_REVIEW_SUCCESS,
+  CREATE_RESOURCE_BEGIN,
+  CREATE_RESOURCE_SUCCESS,
+  CREATE_RESOURCE_ERROR,
+  GET_RESOURCE_BEGIN,
+  GET_RESOURCE_SUCCESS,
 } from "./actions";
 
 import { initialState } from "./appContext";
@@ -714,6 +719,44 @@ const reducer = (state, action) => {
       ...state,
       isLoading: false,
       workers: action.payload.workers,
+    };
+  }
+  /************************************************RESOURCE START************************************************************  */
+  if (action.type === CREATE_RESOURCE_BEGIN) {
+    return {
+      ...state,
+      isLoading: true,
+    };
+  }
+  if (action.type === CREATE_RESOURCE_SUCCESS) {
+    return {
+      ...state,
+      isLoading: false,
+      showAlert: true,
+      alertType: "success",
+      alertText: "Resource created",
+    };
+  }
+  if (action.type === CREATE_RESOURCE_ERROR) {
+    return {
+      ...state,
+      isLoading: false,
+      showAlert: true,
+      alertType: "danger",
+      alertText: action.payload.msg,
+    };
+  }
+  if (action.type === GET_RESOURCE_BEGIN) {
+    return {
+      ...state,
+      isLoading: true,
+    };
+  }
+  if (action.type === GET_RESOURCE_SUCCESS) {
+    return {
+      ...state,
+      isLoading: false,
+      resources: action.payload.resources
     };
   }
   /************************************************ELDER START************************************************************  */

@@ -203,7 +203,6 @@ li {
 .img-circle {
   border-radius: 50%;
   height: 100px;
-  width: 100px;
 }
 .image-flex {
   flex: 4;
@@ -546,16 +545,19 @@ main {
   border-color: transparent;
   width: 2rem;
   height: 2rem;
-  background: var(--grey-200);
+  background: var(--grey-400);
   display: flex;
   align-items: center;
   justify-content: center;
   border-radius: 40%;
-  color: var(--clr-red-special);
+  color: var(--special-500);
   cursor: pointer;
   margin-left: 1rem;
   align-self: center;
   min-width: 2rem;
+}
+.q-icon {
+  font-weight: bold;
 }
 
 .emmas {
@@ -1283,4 +1285,48 @@ Request
 .connect-sub {
   width: 70%;
   margin: auto;
+}
+
+/*
+=============== 
+Resource
+===============
+*/
+.resource {
+  display: flex;
+}
+
+.resource_image {
+  flex: 1;
+}
+.resource_text {
+  flex: 1;
+  margin: 0 20px;
+}
+@media screen and (max-width: 768px) {
+  .resource {
+    flex-direction: column;
+  }
+  .bible_promise {
+    height: auto;
+  }
+  .resource_text {
+    margin: 0;
+  }
+}
+
+.bible_promise {
+  margin-top: 20px;
+  height: 300px;
+  width: 100%;
+  /* height: auto; */
+}
+
+.manual {
+  width: var(--fluid-width);
+  background-color: var(--primary-500);
+  color: var(--white);
+  padding: 4px 20px 15px 20px;
+  margin: 30px auto;
+  text-align: left;
 }
