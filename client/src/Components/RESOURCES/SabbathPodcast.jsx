@@ -7,7 +7,7 @@ const SabbathPodcast = () => {
       <div className="resource">
         <div className="resource_image">
           <img
-            src="https://res.cloudinary.com/dw82gpxt3/image/upload/v1664361059/emmsadale-church/sabbath_podcast_krcs99.jpg"
+            src="https://res.cloudinary.com/dw82gpxt3/image/upload/v1664386580/emmsadale-church/sabbath_podcast_p91qgs.jpg"
             alt=""
             className="img-topic"
           />
