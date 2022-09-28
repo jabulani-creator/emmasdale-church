@@ -26,9 +26,6 @@ const Wrapper = styled.section`
       margin: 50px auto 10px auto;
       text-transform: uppercase;
     }
-    @media screen and (max-width: 768px) {
-      margin: 0 30px;
-    }
     .Time {
       color: var(--primary-60);
       @media screen and (max-width: 768px) {
