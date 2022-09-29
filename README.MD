@@ -11,7 +11,6 @@
 #### Challenges
 
 - i am not able to update my posts from the frontend but in postman ist working
-- i am struggling to create a download link.
 - understanding the youtube Api
 
 #### Appeal
@@ -25,7 +24,7 @@ npm run install-dependencies
 ```
 
 - rename .env.temp to .env
-- setup values for - MONGO_URL, JWT_SECRET, JWT_LIFETIME
+- setup values for - MONGO_URL, JWT_SECRET, JWT_LIFETIME, CLOUD_NAME, CLOUD_API_KEY, CLOUD_API_SECRET
 
 ```sh
 npm start
