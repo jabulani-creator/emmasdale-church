@@ -27,7 +27,7 @@ const Wrapper = styled.aside`
       padding-left: 2.5rem;
     }
     .nav-links {
-      padding-top: 0.75rem;
+      // padding-top: 0.1rem;
       display: flex;
       flex-direction: column;
     }
@@ -35,7 +35,7 @@ const Wrapper = styled.aside`
       display: flex;
       align-items: center;
       color: var(--grey-500);
-      padding: 1rem 0;
+      // padding: 0.5rem 0;
       padding-left: 2.5rem;
       text-transform: capitalize;
       transition: var(--transition);

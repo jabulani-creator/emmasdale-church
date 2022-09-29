@@ -17,7 +17,10 @@ const Wrapper = styled.section`
 
   .PrayerMessage {
     flex: 1;
-    margin: 0 30px 30px 30px;
+    margin: 30px;
+    @media screen and (max-width: 768px) {
+      margin: 0;
+    }
   }
 
   .PrayerImage {

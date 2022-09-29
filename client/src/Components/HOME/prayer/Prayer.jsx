@@ -12,7 +12,9 @@ export const Prayer = () => {
           is for.
         </p>
         <Link to="/contact">
-          <button className="btnn">Yes Pray for me</button>
+          <button className="btnn" style={{ marginBottom: "20px" }}>
+            Yes Pray for me
+          </button>
         </Link>
       </div>
       <div className="PrayerImage">

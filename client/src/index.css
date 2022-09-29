@@ -33,7 +33,7 @@ html {
   --primary-200: #87eaf2;
   --primary-300: #54d1db;
   --primary-400: #38bec9;
-  --primary-60: #6b83b5;
+  --primary-60: rgb(107, 131, 181);
   --primary-500: #083183;
   --primary-600: #14919b;
   --primary-700: #0e7c86;
@@ -239,7 +239,7 @@ li {
   border: transparent;
   border-radius: var(--borderRadius);
   letter-spacing: var(--letterSpacing);
-  padding: 0.6rem 1.2rem;
+  padding: 1rem 1.2rem;
   box-shadow: var(--shadow-2);
   transition: var(--transition);
   text-transform: capitalize;
@@ -252,7 +252,7 @@ li {
   border: transparent;
   border-radius: var(--borderRadius);
   letter-spacing: var(--letterSpacing);
-  padding: 0.6rem 1.2rem;
+  padding: 1rem 1.2rem;
   box-shadow: var(--shadow-2);
   transition: var(--transition);
   text-transform: capitalize;
@@ -266,7 +266,7 @@ li {
   border: transparent;
   border-radius: var(--borderRadius);
   letter-spacing: var(--letterSpacing);
-  padding: 0.375rem 0.75rem;
+  padding: 0.6rem 0.75rem;
   box-shadow: var(--shadow-2);
   transition: var(--transition);
   text-transform: capitalize;
@@ -485,14 +485,6 @@ Questions
 ===============
 */
 
-main {
-  min-height: 100vh;
-  /* using flex because of better browser support */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
 .container {
   width: 90vw;
   margin: 5rem auto;
@@ -517,8 +509,8 @@ main {
   padding: 1rem 1.5rem;
   border: 2px solid var(--clr-grey-special);
   margin-bottom: 1rem;
-  /* border-radius: var(--radius); */
-  /* box-shadow: var(--light-shadow); */
+  border-radius: var(--radius);
+  box-shadow: var(--light-shadow);
   border-radius: var(--borderRadius);
   box-shadow: var(--light-shadow);
   background-color: var(--grey-500);
@@ -541,16 +533,16 @@ main {
   margin-bottom: 0;
 }
 .btn-q {
-  background: transparent;
+  /* background: transparent; */
   border-color: transparent;
   width: 2rem;
   height: 2rem;
-  background: var(--grey-400);
+  background: var(--special-500);
   display: flex;
   align-items: center;
   justify-content: center;
   border-radius: 40%;
-  color: var(--special-500);
+  color: var(--clr-grey-3);
   cursor: pointer;
   margin-left: 1rem;
   align-self: center;
@@ -1035,6 +1027,7 @@ Stock Photos
   margin-right: 1rem;
   font-weight: 700;
 } */
+
 .section-center-slider {
   margin: 0 auto;
   margin-top: 4rem;
@@ -1319,7 +1312,6 @@ Resource
   margin-top: 20px;
   height: 300px;
   width: 100%;
-  /* height: auto; */
 }
 
 .manual {

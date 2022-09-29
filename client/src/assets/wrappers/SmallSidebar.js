@@ -30,10 +30,10 @@ const Wrapper = styled.aside`
     align-items: center;
     flex-direction: column;
   }
-  .close-btn {
+  .close-btn-a {
     position: absolute;
     top: 10px;
-    left: 10px;
+    right: 10px;
     background: transparent;
     border-color: transparent;
     font-size: 2rem;

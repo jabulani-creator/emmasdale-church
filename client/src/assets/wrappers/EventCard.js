@@ -6,7 +6,7 @@ const Wrapper = styled.div`
   .MessageDesc {
     width: 70%;
     position: absolute;
-    top: 35%;
+    top: 30%;
     left: 50%;
     transform: translateX(-50%);
     transition: var(--transition);

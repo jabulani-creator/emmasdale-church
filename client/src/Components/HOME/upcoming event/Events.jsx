@@ -23,7 +23,7 @@ export const Events = () => {
       <section className="Slider">
         <h1 className="title">Upcoming Events</h1>
         <div>
-          <Carousel breakPoints={breakPoints}>
+          <Carousel breakPoints={breakPoints} showArrows={false}>
             {events.map((event) => {
               return <EventCard key={event._id} {...event} />;
             })}

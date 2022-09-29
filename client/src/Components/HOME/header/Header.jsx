@@ -7,7 +7,8 @@ export const Header = () => {
       <Wrapper>
         <div className="HeroContainer">
           <h1 className="HeroTitle">
-            Welcome to <br /> Emmasdale Sda <br /> Church
+            Welcome to <br />
+            Emmasdale Sda <br /> Church
           </h1>
           <p className="subtitle HeroPara">
             The Perfect Place for People Who Are Not, Whatever You Have Been

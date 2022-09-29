@@ -28,6 +28,14 @@ export const AddReview = () => {
     createReview(formdata);
   };
 
+  // useEffect(() => {
+  //   if (!createReview) {
+  //     setTimeout(() => {
+  //       navigate("/");
+  //     }, 3000);
+  //   }
+  // }, [createReview, navigate]);
+
   const handleChange = (e) => {
     setValues({ ...values, [e.target.name]: e.target.value });
   };

@@ -25,7 +25,12 @@ export const ConnectGroup = () => {
           </p>
         </div>
         <div>
-          <Carousel breakPoints={breakPoints}>
+          <Carousel
+            breakPoints={breakPoints}
+            enableAutoPlay
+            autoPlaySpeed={5000}
+            showArrows={false}
+          >
             {groups.map((group) => {
               return <Card key={group.id} {...group} />;
             })}
