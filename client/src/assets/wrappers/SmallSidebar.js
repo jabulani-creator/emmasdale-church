@@ -49,7 +49,7 @@ const Wrapper = styled.aside`
     display: flex;
     align-items: center;
     color: var(--grey-500);
-    padding: 0.3rem 0;
+    padding: 0.3rem 0 0 0;
     text-transform: capitalize;
     transition: var(--transition);
   }

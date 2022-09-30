@@ -13,7 +13,7 @@ export const SingleRequest = ({
   let date = moment(createdAt);
   date = date.format("MMM Do, YYYY");
   return (
-    <div className="topic request" style={{ width: "90%" }}>
+    <div className="topic request" style={{ width: "90%", margin: "auto" }}>
       <div className="request-purpose">
         <div className="main-icon">{purpose.charAt(0)}</div>
         <div className="request-data">

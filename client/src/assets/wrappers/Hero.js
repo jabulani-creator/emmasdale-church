@@ -29,12 +29,12 @@ const Wrapper = styled.header`
       font-size: 5rem;
 
       @media screen and (max-width: 768px) {
-        font-size: 4rem;
+        font-size: 3rem;
       }
     }
 
     .HeroPara {
-      font-size: 1.5em;
+      font-size: 1.3em;
       width: 80%;
     }
   }
