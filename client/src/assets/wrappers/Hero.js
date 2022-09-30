@@ -11,7 +11,7 @@ const Wrapper = styled.header`
       rgba(8, 49, 131, 0.3),
       rgba(8, 49, 131, 0.3)
     ),
-    url("https://res.cloudinary.com/dw82gpxt3/image/upload/v1664442433/emmsadale-church/emmasdale_iu1siu.jpg");
+    url("https://res.cloudinary.com/dw82gpxt3/image/upload/v1664523668/emmsadale-church/emmasdale_inside_lo24qg.jpg");
 
   .HeroContainer {
     width: var(--fluid-width);
@@ -21,16 +21,20 @@ const Wrapper = styled.header`
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    // background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.1));
 
     .HeroTitle {
       text-transform: uppercase;
       letter-spacing: var(--letter-spacing);
       line-height: var(--line-height);
+      font-size: 5rem;
+
+      @media screen and (max-width: 768px) {
+        font-size: 4rem;
+      }
     }
 
     .HeroPara {
-      // font-size: 1em;
+      font-size: 1.5em;
       width: 80%;
     }
   }

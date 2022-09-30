@@ -8,7 +8,7 @@ export const Header = () => {
         <div className="HeroContainer">
           <h1 className="HeroTitle">
             Welcome to <br />
-            Emmasdale Sda <br /> Church
+            Emmasdale Sda Church
           </h1>
           <p className="subtitle HeroPara">
             The Perfect Place for People Who Are Not, Whatever You Have Been

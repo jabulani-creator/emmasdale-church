@@ -34,7 +34,7 @@ html {
   --primary-300: #54d1db;
   --primary-400: #38bec9;
   --primary-60: rgb(107, 131, 181);
-  --primary-500: #083183;
+  --primary-500: rgb(8, 49, 131);
   --primary-600: #14919b;
   --primary-700: #0e7c86;
   --primary-800: #0a6c74;
@@ -53,6 +53,7 @@ html {
   --grey-800: #243b53;
   --grey-900: #102a43;
   --clr-grey-special: #eae6eb;
+
   /* rest of the colors */
   --black: #222;
   --special-500: #ffa31b;
