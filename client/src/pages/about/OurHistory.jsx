@@ -1,12 +1,12 @@
 import { History, Values } from "../../Components/ABOUT";
-import { Footer, Normal, PageHero } from "../../Components/GLOBAL";
+import { Footer, NewSidebar, Normal, PageHero } from "../../Components/GLOBAL";
 import { Review } from "../../Components/HOME";
-import { Navigation } from "../../Components/Navigation";
+
 export const OurHistory = () => {
   return (
     <>
-      <Navigation />
-      <PageHero title="ABOUT/HISTORY" />
+      <NewSidebar />
+      <PageHero />
       <History />
       <Normal
         title="our mission"

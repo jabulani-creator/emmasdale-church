@@ -1,4 +1,4 @@
-import { Footer, Text, OnlineWorship, Navigation } from "../../Components/NEW";
+import { Footer, Text, OnlineWorship } from "../../Components/NEW";
 import {
   Normal,
   WeeklyBulleting,
@@ -7,11 +7,12 @@ import {
   SabbathSchool,
   Reverse,
   PageHero,
+  NewSidebar,
 } from "../../Components/GLOBAL";
 export const New = () => {
   return (
     <>
-      <Navigation />
+      <NewSidebar />
       <PageHero title="NEW" />
       <Text />
       <OnlineWorship />

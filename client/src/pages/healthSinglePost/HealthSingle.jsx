@@ -1,11 +1,10 @@
 import { useParams, Link } from "react-router-dom";
 import { useEffect, useState } from "react";
-import { Footer, PageHero } from "../../Components/GLOBAL";
+import { Footer, NewSidebar, PageHero } from "../../Components/GLOBAL";
 import { useAppContext } from "../../context/appContext";
 import Wrapper from "../../assets/wrappers/singlePost";
 import Loading from "../../Components/Loading";
 import axios from "axios";
-import { Navigation } from "../../Components/Navigation";
 
 export const HealthSingle = () => {
   const { healthId } = useParams();
@@ -35,7 +34,7 @@ export const HealthSingle = () => {
 
   return (
     <>
-      <Navigation />
+      <NewSidebar />
       <PageHero title={healthTitle} />
       <section className="section">
         <Wrapper>

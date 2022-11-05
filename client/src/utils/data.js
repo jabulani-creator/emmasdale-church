@@ -1,25 +1,39 @@
-const sublinks = [
+const navlinks = [
   {
-    page: "ministries",
-    links: [
-      { label: "youth", path: "youth" },
-      { label: "children", path: "children" },
-    ],
+    id: 1,
+    text: "home",
+    path: "/",
   },
   {
-    page: "home",
-    links: [
-      { label: "", path: "youth" },
-      { label: "", path: "children" },
-    ],
+    id: 2,
+    text: "I am new",
+    path: "new",
   },
   {
-    page: "about",
-    links: [
-      { label: "our history", path: "our-history" },
-      { label: "our beliefs", path: "our-beliefs" },
-    ],
+    id: 3,
+    text: "who are we",
+    path: "about",
+  },
+  {
+    id: 4,
+    text: "Ministries",
+    path: "ministries",
+  },
+  {
+    id: 5,
+    text: "Media",
+    path: "media",
+  },
+  {
+    id: 6,
+    text: "Contact",
+    path: "contact",
+  },
+  {
+    id: 7,
+    text: "Resources",
+    path: "resources",
   },
 ];
 
-export default sublinks;
+export default navlinks;

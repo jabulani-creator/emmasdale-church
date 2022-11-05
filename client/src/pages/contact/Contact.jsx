@@ -5,13 +5,12 @@ import {
   PastorsContainer,
   WorkersContainer,
 } from "../../Components/CONTACT";
-import { Form, Normal, PageHero } from "../../Components/GLOBAL";
-import { Navigation } from "../../Components/Navigation";
+import { Form, NewSidebar, Normal, PageHero } from "../../Components/GLOBAL";
 
 export const Contact = () => {
   return (
     <>
-      <Navigation />
+      <NewSidebar />
       <PageHero title="CONTACT" />
       <Normal
         title="How can we help you?"

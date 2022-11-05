@@ -26,7 +26,8 @@ const Wrapper = styled.header`
       text-transform: uppercase;
       letter-spacing: var(--letter-spacing);
       line-height: var(--line-height);
-      font-size: 5rem;
+      font-size: 4rem;
+      margin-top: 2rem;
 
       @media screen and (max-width: 768px) {
         font-size: 3rem;

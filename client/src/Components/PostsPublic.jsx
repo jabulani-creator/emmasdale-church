@@ -16,7 +16,7 @@ export const PostsPublic = ({
   date = date.format("MMM Do, YYYY");
 
   return (
-    <div className="topic" style={{ width: "90%" }}>
+    <div className="topic" style={{ width: "90%", margin: "auto" }}>
       <div className="topic-image">
         <img src={postPhoto} alt="" className="img-topic" />
       </div>

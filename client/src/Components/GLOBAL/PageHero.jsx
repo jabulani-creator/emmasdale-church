@@ -8,7 +8,7 @@ const PageHero = ({ title }) => {
     <Wrapper onMouseOver={closeSubmenu}>
       <div className="section-center">
         <h3>
-          <Link to="/">Home</Link>/{title}
+          <Link to="/"></Link>
         </h3>
       </div>
     </Wrapper>

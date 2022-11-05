@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 const Wrapper = styled.section`
   // background: #086f83;
-  background-color: var(--grey-400);
+  background-color: var(--primary-500);
   width: 100%;
   min-height: 15vh;
   display: flex;

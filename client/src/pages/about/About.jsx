@@ -1,13 +1,11 @@
 import { MiniMenu } from "../../Components/ABOUT";
-import { Footer, PageHero } from "../../Components/GLOBAL";
-import { Navigation } from "../../Components/Navigation";
+import { Footer, NewSidebar, PageHero } from "../../Components/GLOBAL";
 
 export const About = () => {
   return (
     <>
-      <Navigation />
-      {/* <Header title="who are we" /> */}
-      <PageHero title="who are we" />
+      <NewSidebar />
+      <PageHero />
       <MiniMenu />
       <Footer />
     </>

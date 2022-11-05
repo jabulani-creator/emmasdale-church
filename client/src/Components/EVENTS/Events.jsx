@@ -16,7 +16,7 @@ export const Events = ({
   let Time = moment(time, "HH:mm:ss").format("hh:mm A");
   const { deleteEvent } = useAppContext();
   return (
-    <div className="topic" style={{ width: "90%" }}>
+    <div className="topic" style={{ width: "90%", margin: "auto" }}>
       <div className="topic-image">
         <img src={eventPhoto} alt="" className="event-image" />
       </div>

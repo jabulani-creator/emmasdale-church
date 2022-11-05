@@ -2,8 +2,8 @@ import Wrapper from "../assets/wrappers/DashboardFormPage";
 import { useState } from "react";
 import { Alert } from "../Components";
 import { useAppContext } from "../context/appContext";
-import { Navigation } from "../Components/Navigation";
-import { Footer } from "../Components/GLOBAL";
+
+import { Footer, NewSidebar } from "../Components/GLOBAL";
 
 const initialState = { ReviewName: "", ReviewDesc: "", ReviewPhoto: "" };
 export const AddReview = () => {
@@ -45,7 +45,7 @@ export const AddReview = () => {
   };
   return (
     <>
-      <Navigation />
+      <NewSidebar />
       <Wrapper>
         <form
           className="form"

@@ -18,7 +18,7 @@ export const Health = ({
   const { deleteHealthPost } = useAppContext();
 
   return (
-    <div className="topic" style={{ width: "90%" }}>
+    <div className="topic" style={{ width: "90%", margin: "auto" }}>
       <div className="topic-image">
         <img src={healthPhoto} alt="" className="img-topic" />
       </div>

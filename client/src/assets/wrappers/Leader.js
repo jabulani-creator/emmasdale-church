@@ -4,30 +4,54 @@ const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 150px;
-  width: 150px;
-  margin-bottom: 20px;
-  //   background-color: red;
+  justify-content
+  text-align: center;
+  margin: 1.5rem;
+
 
   .ImageContainer {
-    flex: 1;
-    width: 100px;
-    // height: 30px;
-    margin: 5px auto;
+    width:90px;
+    height:90px;
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+    }
+    @media screen and(min-width:2000px) {
+      height: 150px;
+      width: 150px;
+    }
+    @media screen and(min-width:450px) {
+      height: 70px;
+      width: 70px;
+    }
+
   }
+  
 
   .Details {
-    flex: 1;
-    height: 80px;
-    width: 80x;
+    flex:1;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    width:100%;
+    height:90px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    margin-top:0.5rem;
 
     .con {
       font-size: 60%;
       color: var(--primary-500);
+    }
+    @media screen and(min-width:2000px) {
+      margin: 1rem 2rem;
+      margin-top:1rem;
     }
   }
 `;

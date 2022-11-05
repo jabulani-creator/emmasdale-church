@@ -1,4 +1,4 @@
-import { PageHero } from "../../Components/GLOBAL";
+import { NewSidebar, PageHero } from "../../Components/GLOBAL";
 import {
   BiblePromise,
   Footer,
@@ -6,10 +6,10 @@ import {
   Resource,
   LatestResource,
 } from "../../Components/RESOURCES";
-import { Navigation } from "../../Components/Navigation";
+
 export const Resources = () => (
   <>
-    <Navigation />
+    <NewSidebar />
     <PageHero title="RESOURCES" />
     <BiblePromise />
     <SabbathPodcast />

@@ -53,6 +53,12 @@ html {
   --grey-800: #243b53;
   --grey-900: #102a43;
   --clr-grey-special: #eae6eb;
+  --secondary-color: #313bac;
+  --black-color: #030303;
+  --lightGray-color: #e4e4e4;
+  --gray-color: #6b7688;
+  --brown-color: #46364a;
+  --white-color: #ffffff;
 
   /* rest of the colors */
   --black: #222;
@@ -1001,8 +1007,18 @@ Stock Photos
 .leader {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   flex-wrap: wrap;
+  width: 80%;
+  /* margin-right: 5rem; */
+}
+@media screen and(max-width:900px) {
+  .leader {
+    margin-right: 0;
+    justify-content: center;
+    align-items: center;
+    background-color: #044e54;
+  }
 }
 
 .pastor {

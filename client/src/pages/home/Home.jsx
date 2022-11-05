@@ -1,3 +1,4 @@
+import { NewSidebar } from "../../Components/GLOBAL";
 import {
   Footer,
   Header,
@@ -14,12 +15,11 @@ import {
   Figuring,
   Review,
 } from "../../Components/HOME";
-import { Navigation } from "../../Components/Navigation";
 
 export const Home = () => {
   return (
     <>
-      <Navigation />
+      <NewSidebar />
       <Header />
       <Worship />
       <Pastor />

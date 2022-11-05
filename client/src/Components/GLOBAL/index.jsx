@@ -13,6 +13,7 @@ import { NormalFlexReverse } from "./normalFlexReverse copy/NormalFlexReverse";
 import { WeeklyBulleting } from "./weekly/WeeklyBulleting";
 import { SabbathSchool } from "./sabbathSchool/SabbathSchool";
 import { Reverse } from "./normalFlex/Reverse";
+import { NewSidebar } from "./navbar/NewSidebar";
 // import Navbar from "./newNavbar/Navbar";
 
 import PageHero from "./PageHero";
@@ -33,4 +34,5 @@ export {
   SabbathSchool,
   Reverse,
   PageHero,
+  NewSidebar,
 };

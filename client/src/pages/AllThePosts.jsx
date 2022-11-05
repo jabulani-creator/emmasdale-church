@@ -1,11 +1,10 @@
 import React from "react";
 import { PostsContainerPublic, SearchContainer } from "../Components";
-import { Footer } from "../Components/GLOBAL";
-import { Navigation } from "../Components/Navigation";
+import { Footer, NewSidebar } from "../Components/GLOBAL";
 
 const allThePosts = () => (
   <>
-    <Navigation />
+    <NewSidebar />
     <section className="section">
       <SearchContainer />
       <PostsContainerPublic />

@@ -10,7 +10,7 @@ export const Posts = ({ postTitle, postDesc, _id, createdAt, postPhoto }) => {
   date = date.format("MMM Do, YYYY");
   const { deletePost } = useAppContext();
   return (
-    <div className="topic" style={{ width: "90%" }}>
+    <div className="topic" style={{ width: "90%", margin: "auto" }}>
       <div className="topic-image">
         <img src={postPhoto} alt="" className="img-topic" />
       </div>

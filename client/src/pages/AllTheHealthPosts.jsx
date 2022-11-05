@@ -1,11 +1,10 @@
 import React from "react";
 import { HealthSearchContainer, PublicHealthContainer } from "../Components";
-import { Footer } from "../Components/GLOBAL";
-import { Navigation } from "../Components/Navigation";
+import { Footer, NewSidebar } from "../Components/GLOBAL";
 
 const AllTheHealthPosts = () => (
   <>
-    <Navigation />
+    <NewSidebar />
     <section className="section">
       <HealthSearchContainer />
       <PublicHealthContainer />
